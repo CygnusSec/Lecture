@@ -1,0 +1,29 @@
+\begin{frame}{Evaluation Scenario}
+
+\begin{columns}[T,onlytextwidth]
+
+\column{0.45\textwidth}
+\begin{itemize}
+    \item Scenario 1: \placeholder{baseline}
+    \item Scenario 2: \placeholder{proposed method}
+    \item Scenario 3: \placeholder{stress test / extended case}
+\end{itemize}
+
+\column{0.50\textwidth}
+\centering
+\vspace{0.5cm}
+\begin{tikzpicture}[
+    node/.style={circle,draw=MethodColor,minimum size=0.75cm},
+    link/.style={draw=MethodColor,line width=0.6pt}
+]
+    \node[node] (n1) at (0,0) {1};
+    \node[node] (n2) at (2,0.8) {2};
+    \node[node] (n3) at (4,0) {3};
+    \node[node] (n4) at (2,-1) {4};
+    \draw[link] (n1) -- (n2) -- (n3) -- (n4) -- (n1);
+    \draw[link] (n2) -- (n4);
+\end{tikzpicture}
+
+\end{columns}
+
+\end{frame}

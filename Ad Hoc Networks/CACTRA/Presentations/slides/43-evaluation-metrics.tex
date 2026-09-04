@@ -1,0 +1,24 @@
+\begin{frame}{Evaluation Metrics}
+
+\begin{columns}[T,onlytextwidth]
+\column{0.46\textwidth}
+\textbf{Throughput metrics}
+\begin{itemize}
+    \item Per-flow throughput
+    \item Total end-to-end throughput
+    \item Total forwarding throughput
+    \item Time-varying throughput
+\end{itemize}
+
+\column{0.50\textwidth}
+\textbf{Jain Fairness Index}
+\[
+J=\frac{\left(\sum_{i=1}^{n}x_i\right)^2}{n\sum_{i=1}^{n}x_i^2}
+\]
+\begin{itemize}
+    \item $n$: number of flows
+    \item $x_i$: throughput of flow $i$
+    \item Higher $J$ means better fairness
+\end{itemize}
+\end{columns}
+\end{frame}

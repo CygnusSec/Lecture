@@ -1,0 +1,58 @@
+\begin{frame}{Wireless Contention: Hidden and Exposed Terminals}
+
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Hidden-terminal problem}
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.25cm]
+    \node[circle,draw=ResearchColor,fill=CardBg,minimum size=0.72cm] (a) {A};
+    \node[circle,draw=WarningColor,fill=CardBg,minimum size=0.72cm,right=of a] (b) {B};
+    \node[circle,draw=ResearchColor,fill=CardBg,minimum size=0.72cm,right=of b] (c) {C};
+    \draw[-{Latex[length=2mm]},draw=WarningColor,line width=1pt] (a) -- (b);
+    \draw[-{Latex[length=2mm]},draw=WarningColor,line width=1pt] (c) -- (b);
+    \node[font=\fontsize{9}{10.5}\selectfont,text=SecondaryColor] at (2.05,-0.75)
+    {A and C cannot hear each other};
+\end{tikzpicture}
+\end{center}
+
+\fontsize{9}{10.8}\selectfont
+Both stations may transmit to B at the same time, causing a collision at the receiver.
+
+\column{0.48\textwidth}
+\textbf{Exposed-terminal problem}
+
+\begin{center}
+\begin{tikzpicture}[node distance=0.75cm]
+    \node[circle,draw=ResearchColor,fill=CardBg,minimum size=0.72cm] (a) {A};
+    \node[circle,draw=ResearchColor,fill=CardBg,minimum size=0.72cm,right=of a] (b) {B};
+    \node[circle,draw=ResearchColor,fill=CardBg,minimum size=0.72cm,right=of b] (c) {C};
+    \node[circle,draw=ResearchColor,fill=CardBg,minimum size=0.72cm,right=of c] (d) {D};
+    \draw[-{Latex[length=2mm]},draw=ResearchColor,line width=1pt] (a) -- (b);
+    \draw[-{Latex[length=2mm]},draw=SecondaryColor,dashed,line width=1pt] (c) -- (d);
+    \node[font=\fontsize{9}{10.5}\selectfont,text=SecondaryColor] at (2.58,-0.75)
+    {C defers even when C$\rightarrow$D is safe};
+\end{tikzpicture}
+\end{center}
+
+\fontsize{9}{10.8}\selectfont
+Carrier sensing may suppress a feasible transmission and waste spatial reuse.
+\end{columns}
+
+\vspace{0.36cm}
+
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Physical sensing}
+\begin{itemize}
+    \item Detects energy or a valid signal on the channel.
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Virtual sensing}
+\begin{itemize}
+    \item NAV reserves airtime announced by frames; optional RTS/CTS can reduce hidden-terminal collisions.
+\end{itemize}
+\end{columns}
+
+\end{frame}

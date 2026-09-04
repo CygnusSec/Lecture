@@ -1,0 +1,28 @@
+% =========================================================
+% Reusable commands for research/thesis slides
+% =========================================================
+\newcommand{\PaperTitle}{CATRA in Multi-Hop\\Ad Hoc Networks}
+% \newcommand{\PaperAuthors}{Pham Thanh Giang and Kenji Nakagawa}
+\newcommand{\PaperVenue}{IEICE Transactions on Communications, Vol. E98-B, No. 1, 2015}
+\newcommand{\SchemeName}{CATRA}
+\newcommand{\SimulatorName}{NS-2}
+
+\newcommand{\PartDivider}[3]{%
+    \begin{frame}{#1}
+        \vfill
+        {\color{\FrameAccent}\fontsize{25}{30}\selectfont\bfseries\raggedright #2\par}
+        \vspace{0.55cm}
+        {\color{SecondaryColor}\fontsize{13}{17}\selectfont\raggedright #3\par}
+        \vfill
+    \end{frame}
+}
+
+\newcommand{\PaperClaim}[1]{%
+    \begin{center}
+    \begin{tikzpicture}
+        \node[draw=ResearchColor,rounded corners=4pt,fill=CardBg,
+            text width=0.80\paperwidth,align=center,inner xsep=9pt,inner ysep=7pt,
+            font=\fontsize{10}{12}\selectfont\bfseries]{#1};
+    \end{tikzpicture}
+    \end{center}
+}

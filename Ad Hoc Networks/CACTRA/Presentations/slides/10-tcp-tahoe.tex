@@ -1,0 +1,40 @@
+\begin{frame}{TCP Tahoe Congestion Control}
+
+\begin{center}
+\textbf{Packet loss controls the sender through $cwnd$ and $ssthresh$.}
+\end{center}
+
+\vspace{0.02cm}
+
+\begin{columns}[T,onlytextwidth]
+\column{0.56\textwidth}
+\begin{center}
+\begin{tikzpicture}[x=0.50cm,y=0.105cm]
+    \draw[-{Latex[length=2mm]},draw=SecondaryColor] (0,0) -- (10.5,0)
+        node[right,font=\fontsize{9}{10.5}\selectfont] {RTT};
+    \draw[-{Latex[length=2mm]},draw=SecondaryColor] (0,0) -- (0,31)
+        node[above,font=\fontsize{9}{10.5}\selectfont] {$cwnd$};
+    \draw[draw=ResearchColor,line width=1.5pt]
+        (0.4,2) -- (1.4,4) -- (2.4,8) -- (3.4,16) -- (4.4,24)
+        -- (5.4,27) -- (6.4,30);
+    \draw[draw=WarningColor,line width=1.5pt,dashed] (6.4,30) -- (6.7,2);
+    \draw[draw=ResearchColor,line width=1.5pt]
+        (6.7,2) -- (7.7,4) -- (8.7,8) -- (9.7,15);
+    \draw[draw=SecondaryColor,dashed] (0,16) -- (10,16);
+    \node[font=\fontsize{9}{10.5}\selectfont,text=SecondaryColor,anchor=east] at (-0.05,16) {$ssthresh$};
+\end{tikzpicture}
+\end{center}
+
+\column{0.40\textwidth}
+\fontsize{9}{10.8}\selectfont
+\textbf{Control phases}
+\begin{itemize}
+    \setlength{\itemsep}{2pt}
+    \item \textbf{Slow start:} $cwnd$ grows exponentially with ACKs.
+    \item \textbf{Congestion avoidance:} growth is about one segment per RTT.
+    \item \textbf{Loss response:} halve $ssthresh$ and restart from a small window.
+    \item Three duplicate ACKs trigger fast retransmission.
+\end{itemize}
+\end{columns}
+
+\end{frame}

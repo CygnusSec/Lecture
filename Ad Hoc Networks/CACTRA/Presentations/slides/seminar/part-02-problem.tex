@@ -1,0 +1,106 @@
+\ResearchStyle
+\PartDivider{PART II}{Research Problem and Gap}{Reconstruct the exact unfairness problem that motivates CATRA.}
+
+\begin{frame}{Paper Context and Scope}
+\PaperClaim{The paper studies contention between stations and between flows in IEEE 802.11 multi-hop ad hoc networks.}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Included}
+\begin{itemize}
+\item Shared IEEE 802.11 medium.
+\item Multi-hop forwarding.
+\item TCP flow contention.
+\item MAC and transport feedback.
+\end{itemize}
+\column{0.48\textwidth}
+\textbf{Explicitly excluded}
+\begin{itemize}
+\item Mobility-induced unfairness.
+\item Multi-rate operation.
+\item Multi-channel operation.
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Problem 1: MAC-Layer Unfairness}
+\begin{center}
+\resizebox{0.96\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.62cm]
+\node[draw=ResearchColor,rounded corners,fill=CardBg] (beb) {BEB chooses CW};
+\node[draw=ResearchColor,rounded corners,fill=CardBg,right=of beb] (state) {Uses contention state};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of state] (blind) {No flow awareness};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of blind] (unfair) {Unequal opportunities};
+\draw[-{Latex[length=2mm]}] (beb)--(state);
+\draw[-{Latex[length=2mm]}] (state)--(blind);
+\draw[-{Latex[length=2mm]}] (blind)--(unfair);
+\end{tikzpicture}
+}
+\end{center}
+\vspace{0.5cm}
+\begin{itemize}
+\item BEB appears symmetric but multi-hop contention domains are asymmetric.
+\item A forwarding station may compete with different sets of neighbors on each side.
+\item The standard backoff rule does not explicitly represent how many flows a station must carry.
+\item A disadvantaged station can repeatedly lose access even when it forwards critical traffic.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problem 2: TCP-Layer Unfairness}
+\begin{center}
+\resizebox{0.96\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.58cm]
+\node[draw=ResearchColor,rounded corners,fill=CardBg] (grow) {$cwnd$ grows};
+\node[draw=ResearchColor,rounded corners,fill=CardBg,right=of grow] (packets) {More packets};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of packets] (relay) {Relay queues};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of relay] (cont) {More contention};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of cont] (fair) {Fairness loss};
+\draw[-{Latex[length=2mm]}] (grow)--(packets);
+\draw[-{Latex[length=2mm]}] (packets)--(relay);
+\draw[-{Latex[length=2mm]}] (relay)--(cont);
+\draw[-{Latex[length=2mm]}] (cont)--(fair);
+\end{tikzpicture}
+}
+\end{center}
+\vspace{0.45cm}
+\begin{itemize}
+\item Conventional TCP controls an end-to-end path but does not directly observe local wireless contention.
+\item A large window creates many competing packets at intermediate relays.
+\item Different paths and start times can produce unequal ACK clocks and unequal window growth.
+\item Transport behavior that is valid on wired paths can overload a shared multi-hop medium.
+\end{itemize}
+\end{frame}
+
+\input{slides/11-problem-statement}
+\input{slides/12-research-gap}
+
+\begin{frame}{Research Need: Two-Stage Control}
+\begin{center}
+\begin{tikzpicture}[node distance=0.8cm]
+\node[draw=ResearchColor,rounded corners,fill=CardBg,text width=4.2cm,align=center,minimum height=1.1cm] (s1)
+{Stage 1\\Determine a suitable CW for each station};
+\node[draw=ResearchColor,rounded corners,fill=CardBg,text width=4.2cm,align=center,minimum height=1.1cm,right=of s1] (s2)
+{Stage 2\\Regulate the sending rate of each TCP flow};
+\draw[-{Latex[length=2.8mm]},draw=ResearchColor,line width=1.2pt] (s1)--(s2);
+\end{tikzpicture}
+\end{center}
+\vspace{0.5cm}
+\begin{itemize}
+\item Stage 1 targets fair channel access between stations.
+\item Stage 2 targets fair bandwidth sharing between end-to-end flows.
+\item Both stages use channel-utilization information collected at MAC/PHY.
+\end{itemize}
+\end{frame}
+
+\input{slides/13-research-questions}
+
+\begin{frame}{Main Contributions of the Paper}
+\begin{enumerate}
+\item Define station-level and flow-level Fair Bandwidth Ratios.
+\item Estimate real channel utilization from packet airtime.
+\item Adapt the IEEE 802.11 contention window using $RBR_S/FBR_S$.
+\item Pass MAC/PHY utilization information to the transport layer.
+\item Adapt TCP generation delay and $cwnd$ using $RBR_f/FBR_f$.
+\end{enumerate}
+\vspace{0.35cm}
+\KeyPoint{CATRA is a feedback-control design with separate actuators for station contention and flow demand.}
+\end{frame}

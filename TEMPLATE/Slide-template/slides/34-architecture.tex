@@ -1,0 +1,24 @@
+\begin{frame}{Architecture}
+
+\centering
+\vspace{0.45cm}
+
+\begin{tikzpicture}[
+    box/.style={draw=MethodColor,rounded corners=3pt,minimum width=2.8cm,minimum height=0.85cm},
+    arr/.style={->,draw=MethodColor,line width=0.8pt}
+]
+    \node[box] (data) at (0,0) {Data Source};
+    \node[box] (pre) at (3.5,0) {Preprocessing};
+    \node[box] (model) at (7.0,0) {Model / Method};
+    \node[box] (eval) at (10.5,0) {Evaluation};
+
+    \draw[arr] (data) -- (pre);
+    \draw[arr] (pre) -- (model);
+    \draw[arr] (model) -- (eval);
+\end{tikzpicture}
+
+\vspace{0.55cm}
+
+\placeholder{Replace this with your system architecture diagram.}
+
+\end{frame}

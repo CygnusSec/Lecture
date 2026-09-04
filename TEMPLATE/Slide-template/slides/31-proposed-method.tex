@@ -1,0 +1,32 @@
+\begin{frame}{Proposed Method}
+
+\begin{columns}[T,onlytextwidth]
+
+\column{0.45\textwidth}
+\textbf{Core idea}
+
+\vspace{0.30cm}
+
+\begin{itemize}
+    \item Input: \placeholder{data / signal / workload}
+    \item Processing: \placeholder{algorithm / model / pipeline}
+    \item Output: \placeholder{decision / result / metric}
+\end{itemize}
+
+\column{0.50\textwidth}
+\centering
+\vspace{0.5cm}
+\begin{tikzpicture}[
+    box/.style={draw=MethodColor,rounded corners=3pt,minimum width=1.55cm,minimum height=0.72cm,font=\small},
+    arr/.style={->,draw=MethodColor,line width=0.8pt}
+]
+    \node[box] (input) at (0,0) {Input};
+    \node[box] (process) at (2.0,0) {Process};
+    \node[box] (output) at (4.0,0) {Output};
+    \draw[arr] (input) -- (process);
+    \draw[arr] (process) -- (output);
+\end{tikzpicture}
+
+\end{columns}
+
+\end{frame}

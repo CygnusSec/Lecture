@@ -1,0 +1,38 @@
+% PowerPoint Widescreen canvas: 16:9 (equivalent to 13.333 x 7.5 in).
+% Beamer uses a 160 x 90 mm logical canvas with the same aspect ratio.
+\documentclass[aspectratio=169,11pt]{beamer}
+
+% =========================================================
+% Configuration
+% =========================================================
+\input{config/packages}
+\input{config/colors}
+\input{config/theme}
+\input{config/commands}
+
+% =========================================================
+% Metadata
+% =========================================================
+\title{\PaperTitle}
+\subtitle{Research Study Presentation: CATRA for Multi-Hop Ad Hoc Networks}
+\author{Tran Dai Duong}
+\institute{Institute of Information Technology\\Vietnam Academy of Science and Technology}
+\date{\today}
+
+% =========================================================
+% Document
+% =========================================================
+\begin{document}
+
+\input{slides/00-title}
+\input{slides/01-outline}
+
+\input{slides/seminar/part-01-background}
+\input{slides/seminar/part-02-problem}
+\input{slides/seminar/part-03-related-work}
+\input{slides/seminar/part-04-catra-mac}
+\input{slides/seminar/part-05-catra-tcp}
+\input{slides/seminar/references}
+\input{slides/99-thank-you}
+
+\end{document}

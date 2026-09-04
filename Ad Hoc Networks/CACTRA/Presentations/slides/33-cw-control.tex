@@ -1,0 +1,32 @@
+\begin{frame}{Adaptive Contention Window Control}
+
+\[
+CW' = \min\left(\frac{RBR_S}{FBR_S}CW,\; CW_{max}\right)
+\]
+
+\vspace{0.35cm}
+
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Under-allocated station}
+\[
+RBR_S < FBR_S \Rightarrow CW' < CW
+\]
+\begin{itemize}
+    \item Expected backoff decreases.
+    \item Channel-access probability increases.
+    \item Station bandwidth can increase.
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Over-allocated station}
+\[
+RBR_S > FBR_S \Rightarrow CW' > CW
+\]
+\begin{itemize}
+    \item Expected backoff increases.
+    \item Access aggressiveness decreases.
+    \item Other stations gain opportunities.
+\end{itemize}
+\end{columns}
+\end{frame}

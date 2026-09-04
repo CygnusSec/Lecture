@@ -1,0 +1,20 @@
+\begin{frame}{Related Work}
+
+\begin{center}
+\small
+\begin{tabular}{>{\RaggedRight\arraybackslash}p{0.22\textwidth} >{\RaggedRight\arraybackslash}p{0.30\textwidth} >{\RaggedRight\arraybackslash}p{0.34\textwidth}}
+\toprule
+\textbf{Category} & \textbf{Main idea} & \textbf{Limitation} \\
+\midrule
+MAC-layer methods & Modify EIFS, backoff, or CW control & Often topology-dependent or focused on single-hop networks \\
+\addlinespace
+TCP-layer methods & Limit cwnd or regulate TCP rate & Does not directly solve wireless contention behavior \\
+\addlinespace
+Cross-layer methods & Use MAC information to influence TCP & May not sufficiently address intermediate-node MAC channel efficiency \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.25cm}
+\SmallNote{CATRA positions itself as a two-stage cross-layer solution: station fairness first, then flow fairness.}
+\end{frame}

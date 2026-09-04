@@ -1,0 +1,68 @@
+\begin{frame}{Problem Statement}
+
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{MAC-layer unfairness}
+\begin{itemize}
+    \item BEB adjusts CW mainly from contention/collision state.
+    \item It does not explicitly consider neighboring-flow demand.
+    \item Some stations can gain more channel access opportunities.
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{TCP-layer unfairness}
+\begin{itemize}
+    \item TCP cwnd can grow too aggressively.
+    \item More packets contend for the same medium.
+    \item Throughput and per-flow fairness degrade.
+\end{itemize}
+\end{columns}
+
+\vspace{0.45cm}
+
+\begin{center}
+\begin{tikzpicture}[node distance=0.8cm]
+
+    \node[
+        draw=ResearchColor,
+        rounded corners,
+        fill=CardBg,
+        minimum width=2.4cm,
+        minimum height=0.75cm
+    ] (mac) {MAC contention};
+
+    \node[
+        draw=ResearchColor,
+        rounded corners,
+        fill=CardBg,
+        minimum width=2.4cm,
+        minimum height=0.75cm,
+        right=1.1cm of mac
+    ] (tcp) {TCP sending rate};
+
+    \node[
+        draw=WarningColor,
+        rounded corners,
+        fill=CardBg,
+        minimum width=3.3cm,
+        minimum height=0.75cm,
+        right=1.1cm of tcp
+    ] (fair) {Fairness degradation};
+
+    \draw[
+        -{Latex[length=2.5mm]},
+        draw=ResearchColor,
+        line width=0.8pt
+    ]
+    (mac) -- (tcp);
+
+    \draw[
+        -{Latex[length=2.5mm]},
+        draw=WarningColor,
+        line width=0.8pt
+    ]
+    (tcp) -- (fair);
+
+\end{tikzpicture}
+\end{center}
+\end{frame}

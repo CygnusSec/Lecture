@@ -1,0 +1,18 @@
+% =========================================================
+% Reusable Commands
+% =========================================================
+\newcommand{\keyword}[1]{\textbf{\color{\FrameAccent}#1}}
+
+\newcommand{\placeholder}[1]{%
+    {\color{SecondaryColor}\textit{#1}}%
+}
+
+\newcommand{\metric}[2]{%
+    \begin{tabular}{@{}c@{}}
+        {\fontsize{22}{26}\selectfont\bfseries\color{\FrameAccent}#1}\\[-0.1cm]
+        {\fontsize{8}{10}\selectfont\color{SecondaryColor}#2}
+    \end{tabular}%
+}
+
+% Customize this once; the footer updates on every regular slide.
+\newcommand{\PresentationFooter}{Your Thesis or Research Title}

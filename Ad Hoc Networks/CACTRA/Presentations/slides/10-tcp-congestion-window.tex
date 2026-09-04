@@ -1,0 +1,41 @@
+\begin{frame}{TCP Congestion Window Overview}
+
+\begin{center}
+\textbf{$cwnd$ is the sender's estimate of how much traffic the network can currently sustain.}
+\end{center}
+
+\[
+\boxed{Sending\ rate \approx \frac{cwnd}{RTT}}
+\]
+
+\begin{columns}[T,onlytextwidth]
+\column{0.47\textwidth}
+\textbf{Core role}
+\begin{itemize}
+    \item Maintained by the TCP sender.
+    \item Controls the amount of outstanding data.
+    \item Separate from the receiver window $rwnd$.
+\end{itemize}
+
+\column{0.49\textwidth}
+\textbf{Feedback-driven adaptation}
+\begin{itemize}
+    \item Successful ACKs allow $cwnd$ to grow.
+    \item Loss, timeout, or ECN causes $cwnd$ to decrease.
+    \item The exact rule depends on the TCP algorithm.
+\end{itemize}
+\end{columns}
+
+\vspace{0cm}
+\begin{center}
+\begin{tikzpicture}[node distance=0.55cm]
+\node[draw=ResearchColor,rounded corners,fill=CardBg] (ack) {ACK feedback};
+\node[draw=ResearchColor,rounded corners,fill=CardBg,right=of ack] (grow) {Increase $cwnd$};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of grow] (loss) {Congestion signal};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of loss] (reduce) {Reduce $cwnd$};
+\draw[-{Latex[length=2mm]},draw=ResearchColor] (ack)--(grow);
+\draw[-{Latex[length=2mm]},draw=WarningColor] (loss)--(reduce);
+\end{tikzpicture}
+\end{center}
+
+\end{frame}

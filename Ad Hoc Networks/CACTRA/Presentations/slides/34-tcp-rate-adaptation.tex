@@ -1,0 +1,27 @@
+\begin{frame}{Algorithm 2: TCP Rate Adaptation}
+
+\begin{columns}[T,onlytextwidth]
+\column{0.46\textwidth}
+\textbf{Core variables}
+\[
+FBR_f=\frac{1}{n_{total}}
+\]
+\[
+RBR_f=\frac{T_f^{Active}}{EP}
+\]
+\[
+\Delta_f=\frac{RBR_f}{FBR_f}T_f
+\]
+
+\column{0.50\textwidth}
+\textbf{ACK-triggered logic}
+\begin{itemize}
+    \item If $RBR_f/FBR_f > Highth$: delay packet generation and reduce $cwnd$.
+    \item If $RBR_f/FBR_f < Lowth$: remove delay and increase $cwnd$.
+    \item Otherwise: use original TCP behavior.
+\end{itemize}
+
+\vspace{0.2cm}
+\SmallNote{$Highth=1.05$, $Lowth=0.7$ in the paper evaluation.}
+\end{columns}
+\end{frame}

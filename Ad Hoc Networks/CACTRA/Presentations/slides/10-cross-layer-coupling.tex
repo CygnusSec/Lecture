@@ -1,0 +1,37 @@
+\begin{frame}{MAC--TCP Cross-Layer Coupling}
+\small
+
+\KeyPoint{In a multi-hop wireless path, transport-layer load changes MAC contention, while MAC behavior changes TCP feedback.}
+
+\vspace{0.05cm}
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=0.50cm,
+    stage/.style={draw=ResearchColor,rounded corners=4pt,fill=CardBg,text width=2.45cm,
+        minimum height=0.82cm,align=center,font=\fontsize{9}{10.5}\selectfont\bfseries},
+    effect/.style={draw=WarningColor,rounded corners=4pt,fill=CardBg,text width=2.45cm,
+        minimum height=0.82cm,align=center,font=\fontsize{9}{10.5}\selectfont\bfseries},
+    flow/.style={-{Latex[length=2.2mm]},line width=0.9pt}
+]
+    \node[stage] (cwnd) {Larger TCP\\congestion window};
+    \node[stage,right=of cwnd] (queue) {More packets at\\each wireless hop};
+    \node[effect,right=of queue] (contention) {More contention,\\backoff, and retries};
+    \node[effect,below=0.60cm of contention] (feedback) {Higher RTT and\\packet-loss signals};
+    \node[stage,left=of feedback] (tcp) {TCP reduces or\\regrows $cwnd$};
+
+    \draw[flow,draw=ResearchColor] (cwnd) -- (queue);
+    \draw[flow,draw=WarningColor] (queue) -- (contention);
+    \draw[flow,draw=WarningColor] (contention) -- (feedback);
+    \draw[flow,draw=ResearchColor] (feedback) -- (tcp);
+    \draw[flow,draw=ResearchColor] (tcp.west) -| ([xshift=-0.35cm]cwnd.south) -- (cwnd.south);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.05cm}
+\begin{center}
+\fontsize{9}{10.8}\selectfont
+\textbf{Required coordination:} fair station-level channel access at MAC + fair flow-level demand at TCP.
+\end{center}
+
+\end{frame}

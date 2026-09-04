@@ -1,0 +1,174 @@
+\ResearchStyle
+\PartDivider{PART I}{Research Background}{Build the networking foundation needed to understand CATRA.}
+
+\input{slides/10-ad-hoc-network}
+
+\begin{frame}{Single-Hop vs. Multi-Hop Communication}
+\small
+\begin{columns}[T,onlytextwidth]
+\column{0.45\textwidth}
+\textbf{Single-hop}
+\begin{center}
+\begin{tikzpicture}
+\node[draw=ResearchColor,circle,minimum size=0.8cm] (s) {S};
+\node[draw=ResearchColor,circle,minimum size=0.8cm,right=3.0cm of s] (r) {R};
+\draw[-{Latex[length=2.5mm]},draw=ResearchColor,line width=1.2pt] (s)--(r);
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+\item One packet needs one channel-access event.
+\item Sender and receiver share one local contention domain.
+\end{itemize}
+
+\column{0.51\textwidth}
+\textbf{Multi-hop}
+\begin{center}
+\begin{tikzpicture}[node distance=0.72cm]
+\node[draw=ResearchColor,circle,minimum size=0.72cm] (s) {S};
+\node[draw=ResearchColor,circle,minimum size=0.72cm,right=of s] (n1) {N1};
+\node[draw=ResearchColor,circle,minimum size=0.72cm,right=of n1] (n2) {N2};
+\node[draw=ResearchColor,circle,minimum size=0.72cm,right=of n2] (r) {R};
+\draw[-{Latex[length=2mm]},draw=ResearchColor] (s)--(n1);
+\draw[-{Latex[length=2mm]},draw=ResearchColor] (n1)--(n2);
+\draw[-{Latex[length=2mm]},draw=ResearchColor] (n2)--(r);
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+\item The same packet consumes airtime at every forwarding hop.
+\item Neighboring hops contend and often cannot transmit together.
+\end{itemize}
+\end{columns}
+\vspace{0.08cm}
+\KeyPoint{Route length affects airtime consumption, contention, and end-to-end throughput.}
+\end{frame}
+
+\begin{frame}{Why a Shared Wireless Medium Is Different}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Broadcast and half-duplex}
+\begin{itemize}
+\item A transmission can be sensed by multiple neighboring stations.
+\item A radio normally cannot detect a collision while transmitting.
+\item Wi-Fi therefore avoids collisions instead of detecting them.
+\end{itemize}
+\column{0.48\textwidth}
+\textbf{Multi-hop consequences}
+\begin{itemize}
+\item Forwarding traffic competes with locally generated traffic.
+\item Spatial reuse depends on physical and carrier-sensing ranges.
+\item PHY rate is not equal to end-to-end goodput.
+\end{itemize}
+\end{columns}
+\vspace{0.35cm}
+\begin{center}
+\begin{tikzpicture}[node distance=0.65cm]
+\node[draw=ResearchColor,rounded corners,fill=CardBg] (a) {More hops};
+\node[draw=ResearchColor,rounded corners,fill=CardBg,right=of a] (b) {More channel uses};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of b] (c) {More contention};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of c] (d) {Lower E2E rate};
+\draw[-{Latex[length=2mm]},draw=ResearchColor] (a)--(b);
+\draw[-{Latex[length=2mm]},draw=WarningColor] (b)--(c);
+\draw[-{Latex[length=2mm]},draw=WarningColor] (c)--(d);
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\input{slides/10-mac-layer}
+
+\begin{frame}{Contention Window and Expected Backoff}
+\small
+\begin{center}
+\textbf{A station draws an integer backoff counter from its current contention window.}
+\end{center}
+\[
+N\sim U\{0,\ldots,CW\},\qquad
+E[T_{backoff}]\approx \frac{CW}{2}\,SlotTime
+\]
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Smaller CW}
+\begin{itemize}
+\item Shorter expected wait.
+\item More aggressive channel access.
+\item Higher collision risk under contention.
+\end{itemize}
+\column{0.48\textwidth}
+\textbf{Larger CW}
+\begin{itemize}
+\item Longer expected wait.
+\item Lower access probability.
+\item More room for competing stations.
+\end{itemize}
+\end{columns}
+\vspace{0.02cm}
+\begin{center}
+\textbf{CATRA changes CW deliberately to control each station's channel-access opportunity.}
+\end{center}
+\end{frame}
+
+\begin{frame}{Binary Exponential Backoff}
+\begin{center}
+\begin{tikzpicture}[node distance=0.55cm]
+\node[draw=ResearchColor,rounded corners,fill=CardBg] (tx) {Transmit};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of tx] (fail) {No ACK};
+\node[draw=WarningColor,rounded corners,fill=CardBg,right=of fail] (cw) {$CW\leftarrow\min(2CW,CW_{max})$};
+\node[draw=ResearchColor,rounded corners,fill=CardBg,right=of cw] (retry) {New backoff};
+\draw[-{Latex[length=2mm]}] (tx)--(fail);
+\draw[-{Latex[length=2mm]}] (fail)--(cw);
+\draw[-{Latex[length=2mm]}] (cw)--(retry);
+\end{tikzpicture}
+\end{center}
+\vspace{0.35cm}
+\begin{itemize}
+\item BEB reacts to success/failure and contention conditions.
+\item It does not explicitly know the number of neighboring flows.
+\item It does not know whether a forwarding station receives its fair share.
+\item Consequently, the resulting CW may be inappropriate for fairness in asymmetric multi-hop topologies.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{802.11 Timing Used by CATRA}
+\begin{center}
+\begin{tikzpicture}[x=0.85cm,y=1cm]
+\draw[-{Latex[length=2mm]},draw=SecondaryColor] (0,0)--(14.0,0);
+\foreach \x/\w/\label/\c in {0.2/1.2/DIFS/ResearchColor,1.4/2.0/Backoff/ResearchColor,3.4/1.1/RTS/WarningColor,4.5/1.0/SIFS/ResearchColor,5.5/1.1/CTS/WarningColor,6.6/1.0/SIFS/ResearchColor,7.6/2.4/TCP DATA/TitleColor,10.0/1.2/SIFS/ResearchColor,11.2/2.0/MAC ACK/WarningColor}
+{\fill[\c!18] (\x,0.12) rectangle +(\w,0.62);\draw[\c] (\x,0.12) rectangle +(\w,0.62);\node[font=\fontsize{9}{10.5}\selectfont] at (\x+\w/2,0.43) {\label};}
+\end{tikzpicture}
+\end{center}
+\vspace{0.45cm}
+\begin{itemize}
+\item Algorithm 1 approximates airtime from average backoff, control frames, inter-frame spaces, TCP DATA/ACK, and MAC ACK.
+\item The receiver's TCP ACK travels in the reverse direction and also consumes wireless airtime.
+\item Active time is therefore a resource-usage estimate, not only a packet counter.
+\end{itemize}
+\end{frame}
+
+\input{slides/10-wireless-contention}
+\input{slides/10-transport-layer}
+\input{slides/10-tcp-congestion-window}
+\input{slides/10-tcp-tahoe}
+
+\begin{frame}{Station Fairness vs. Flow Fairness}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Per-station fairness}
+\begin{center}
+\begin{tikzpicture}
+\node[draw=ResearchColor,rounded corners,fill=CardBg,text width=4.8cm,align=center,minimum height=1.2cm]
+{Does each contending station receive a fair channel-access opportunity?};
+\end{tikzpicture}
+\end{center}
+\column{0.48\textwidth}
+\textbf{Per-flow fairness}
+\begin{center}
+\begin{tikzpicture}
+\node[draw=ResearchColor,rounded corners,fill=CardBg,text width=4.8cm,align=center,minimum height=1.2cm]
+{Does each end-to-end flow receive a fair throughput share?};
+\end{tikzpicture}
+\end{center}
+\end{columns}
+\vspace{0.45cm}
+\KeyPoint{One station may forward several flows; therefore equal station airtime does not imply equal flow throughput.}
+\end{frame}
+
+\input{slides/10-cross-layer-coupling}

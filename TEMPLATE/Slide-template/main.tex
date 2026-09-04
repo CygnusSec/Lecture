@@ -1,0 +1,99 @@
+% PowerPoint Widescreen canvas: 16:9 (equivalent to 13.333 x 7.5 in).
+% Beamer uses a 160 x 90 mm logical canvas with the same aspect ratio.
+\documentclass[aspectratio=169,11pt]{beamer}
+
+% =========================================================
+% Research / Thesis Defense Beamer Template
+% Compile with: latexmk -xelatex main.tex
+% =========================================================
+
+\input{config/packages}
+\input{config/colors}
+\input{config/theme}
+\input{config/commands}
+
+% =========================================================
+% Document information
+% =========================================================
+\title{Your Thesis or Research Title}
+\subtitle{A concise subtitle that explains the study scope}
+\author{Your Name}
+\institute{Your Department or Institute\\Your University or Organization}
+\date{\today}
+
+\begin{document}
+
+% =========================================================
+% Opening
+% =========================================================
+\input{slides/00-title}
+\input{slides/01-outline}
+
+% =========================================================
+% Research Context
+% =========================================================
+\ResearchStyle
+\section{Research Context}
+\input{slides/10-background}
+\input{slides/11-motivation}
+\input{slides/12-problem-statement}
+\input{slides/13-research-gap}
+\input{slides/14-research-questions}
+\input{slides/15-objectives}
+
+% =========================================================
+% Related Work
+% =========================================================
+\ResearchStyle
+\section{Related Work}
+\input{slides/20-related-work}
+\input{slides/21-literature-review}
+
+% =========================================================
+% Methodology
+% =========================================================
+\MethodStyle
+\section{Methodology}
+\input{slides/30-methodology}
+\input{slides/31-proposed-method}
+\input{slides/32-system-model}
+\input{slides/33-algorithm}
+\input{slides/34-architecture}
+
+% =========================================================
+% Evaluation
+% =========================================================
+\MethodStyle
+\section{Evaluation}
+\input{slides/40-experimental-setup}
+\input{slides/41-scenario}
+\input{slides/42-parameters}
+\input{slides/43-evaluation-metrics}
+
+% =========================================================
+% Results and Discussion
+% =========================================================
+\ResultStyle
+\section{Results and Discussion}
+\input{slides/50-results}
+\input{slides/51-results-analysis}
+\input{slides/52-comparison}
+\input{slides/53-discussion}
+
+% =========================================================
+% Conclusion
+% =========================================================
+\ConclusionStyle
+\section{Conclusion}
+\input{slides/60-contributions}
+\input{slides/61-limitations}
+\input{slides/62-conclusion}
+\input{slides/63-future-work}
+
+% =========================================================
+% Closing
+% =========================================================
+\input{slides/90-references}
+\input{slides/99-thank-you}
+
+\end{document}

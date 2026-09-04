@@ -1,0 +1,126 @@
+% =========================================================
+% Custom Minimal Research Theme
+% =========================================================
+\newcommand{\FrameAccent}{TitleColor}
+
+\newcommand{\setframeaccent}[1]{%
+    \renewcommand{\FrameAccent}{#1}%
+    \setbeamercolor{frametitle}{fg=#1,bg=Background}%
+    \setbeamercolor{structure}{fg=#1}%
+    \setbeamercolor{itemize item}{fg=#1}%
+    \setbeamercolor{itemize subitem}{fg=#1}%
+    \setbeamercolor{enumerate item}{fg=#1}%
+}
+
+\newcommand{\DefaultStyle}{\setframeaccent{TitleColor}}
+\newcommand{\ResearchStyle}{\setframeaccent{ResearchColor}}
+\newcommand{\MethodStyle}{\setframeaccent{MethodColor}}
+\newcommand{\ResultStyle}{\setframeaccent{ResultColor}}
+\newcommand{\ConclusionStyle}{\setframeaccent{ConclusionColor}}
+\DefaultStyle
+
+% ---------------------------------------------------------
+% Full-slide background and logo on every slide. The background is
+% stretched to the exact PowerPoint Widescreen canvas (16:9).
+% ---------------------------------------------------------
+\setbeamertemplate{background}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \IfFileExists{images/slide-background.png}{%
+            \node[anchor=center,inner sep=0pt,opacity=0.45]
+            at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{images/slide-background.png}};
+        }{}%
+        \node[anchor=north east,xshift=-0.42cm,yshift=-0.12cm]
+        at (current page.north east) {\LogoMark};
+    \end{tikzpicture}%
+}
+
+\newcommand{\LogoMark}{%
+    \IfFileExists{images/logo.png}{%
+        \begin{tikzpicture}[inner sep=0pt]
+            \node (logo) {\includegraphics[width=3.55cm,height=0.82cm,keepaspectratio]{images/logo.png}};
+            \node[below=1pt of logo,text=TitleColor,font=\fontsize{6.5}{7.2}\selectfont\bfseries,align=center]
+            {Institute of\\Information Technology};
+        \end{tikzpicture}%
+    }{%
+        \begin{tikzpicture}
+            \node[draw=LineColor,rounded corners=2pt,inner xsep=6pt,inner ysep=3pt,
+                text=SecondaryColor,font=\fontsize{7}{8}\selectfont\bfseries]{IOIT -- VAST};
+        \end{tikzpicture}%
+    }%
+}
+
+% ---------------------------------------------------------
+% Frame title
+% ---------------------------------------------------------
+\setbeamertemplate{frametitle}{%
+    \vspace{0.22cm}
+    \hspace{0.15cm}%
+    \begin{minipage}[t]{0.70\paperwidth}
+        \raggedright
+        \usebeamercolor[fg]{frametitle}%
+        \fontsize{17}{20}\selectfont\bfseries\insertframetitle
+    \end{minipage}
+
+    \vspace{0.06cm}
+    \hspace{0.15cm}%
+    \begin{tikzpicture}
+        \draw[draw=\FrameAccent,line width=0.65pt] (0,0) -- (10.8,0);
+    \end{tikzpicture}
+    \vspace{0.02cm}
+}
+
+% ---------------------------------------------------------
+% Footer
+% ---------------------------------------------------------
+\setbeamertemplate{footline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.84\paperwidth,ht=2.7ex,dp=1.2ex,left]{author in head/foot}%
+            \hspace{0.45cm}%
+            \color{SecondaryColor}%
+            \fontsize{7}{8.5}\selectfont
+            Cooperation between Channel Access Control and TCP Rate Adaptation
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.16\paperwidth,ht=2.7ex,dp=1.2ex,right]{date in head/foot}%
+            \color{SecondaryColor}%
+            \fontsize{7}{8.5}\selectfont
+            \insertframenumber/\inserttotalframenumber\hspace{0.45cm}
+        \end{beamercolorbox}%
+    }%
+}
+
+% ---------------------------------------------------------
+% List styling
+% ---------------------------------------------------------
+\setbeamertemplate{itemize item}{\raise0.2ex\hbox{\small$\bullet$}}
+\setbeamertemplate{itemize subitem}{\raise0.2ex\hbox{\scriptsize$\bullet$}}
+\setlength{\leftmargini}{1.35em}
+\setlength{\leftmarginii}{1.15em}
+
+% ---------------------------------------------------------
+% Utility blocks
+% ---------------------------------------------------------
+\newcommand{\SlideTag}[1]{%
+    {\color{\FrameAccent}\fontsize{9}{11}\selectfont\bfseries #1}\par\vspace{0.25cm}%
+}
+
+\newcommand{\KeyPoint}[1]{%
+    \begin{center}
+    \begin{tikzpicture}
+        \node[
+            draw=\FrameAccent,
+            rounded corners=4pt,
+            fill=CardBg,
+            inner xsep=10pt,
+            inner ysep=7pt,
+            text width=0.78\paperwidth,
+            align=center,
+            font=\fontsize{10.5}{13}\selectfont\bfseries
+        ]{#1};
+    \end{tikzpicture}
+    \end{center}
+}
+
+\newcommand{\SmallNote}[1]{%
+    {\color{SecondaryColor}\fontsize{9}{11}\selectfont #1}%
+}

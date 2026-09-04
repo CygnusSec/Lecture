@@ -1,0 +1,56 @@
+% =========================================================
+% Packages
+% =========================================================
+\usepackage{fix-cm}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{array}
+
+\usetikzlibrary{
+    positioning,
+    arrows.meta,
+    shapes.geometric,
+    calc,
+    fit
+}
+
+% =========================================================
+% Base theme
+% =========================================================
+\usetheme{default}
+\usefonttheme{professionalfonts}
+
+\setbeamertemplate{navigation symbols}{}
+
+% =========================================================
+% Fonts
+% =========================================================
+
+% Sans-serif font used by Beamer
+\IfFontExistsTF{Arial}{
+    \setsansfont{Arial}
+}{
+    \IfFontExistsTF{TeX Gyre Heros}{
+        \setsansfont{TeX Gyre Heros}
+    }{
+        \setsansfont{Latin Modern Sans}
+    }
+}
+
+% Serif font
+\IfFontExistsTF{Times New Roman}{
+    \setmainfont{Times New Roman}
+}{
+    \setmainfont{Latin Modern Roman}
+}
+
+% Beamer's 11 pt body text maps visually to roughly 20-22 pt on a
+% PowerPoint Widescreen canvas. Components may opt into smaller text.
+\setbeamerfont{normal text}{size=\normalsize}
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setlength{\emergencystretch}{1.5em}

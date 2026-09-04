@@ -1,0 +1,29 @@
+\begin{frame}{Fair Bandwidth Model}
+
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Station fair bandwidth ratio}
+\[
+FBR_S = \frac{n_{SEND}}{n_{total}}
+\]
+\[
+n_{total} = n_{TX} + n_{CS}
+\]
+\begin{itemize}
+    \item $n_{SEND}$: flows transmitted by station
+    \item $n_{TX}$: local and transmission-range flows
+    \item $n_{CS}$: carrier-sensing flows
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Real bandwidth ratio}
+\[
+RBR_S = \frac{T^{Active}}{EP}
+\]
+\begin{itemize}
+    \item $T^{Active}$: estimated active transmission time
+    \item $EP$: estimation period
+    \item Compare $RBR_S$ with $FBR_S$ to tune CW
+\end{itemize}
+\end{columns}
+\end{frame}

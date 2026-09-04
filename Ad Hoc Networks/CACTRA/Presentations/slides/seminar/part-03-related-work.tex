@@ -1,0 +1,99 @@
+\ResearchStyle
+\PartDivider{PART III}{Related Work}{Compare MAC-only, TCP-only, and earlier cross-layer approaches.}
+
+\begin{frame}{Related Work Map}
+\small
+\begin{center}
+\resizebox{0.96\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.6cm]
+\node[draw=ResearchColor,rounded corners,fill=CardBg,text width=3.2cm,align=center] (root) {Prior fairness approaches};
+\node[draw=ResearchColor,rounded corners,fill=CardBg,text width=2.8cm,align=center,below left=0.75cm and 2.5cm of root] (mac) {MAC-only\\EIFS, backoff, CW};
+\node[draw=ResearchColor,rounded corners,fill=CardBg,text width=2.8cm,align=center,below=0.75cm of root] (tcp) {TCP/network\\NRED, cwnd limit};
+\node[draw=ResearchColor,rounded corners,fill=CardBg,text width=2.8cm,align=center,below right=0.75cm and 2.5cm of root] (cross) {Cross-layer\\MAC signals to TCP};
+\draw[-{Latex[length=2mm]}] (root)--(mac);
+\draw[-{Latex[length=2mm]}] (root)--(tcp);
+\draw[-{Latex[length=2mm]}] (root)--(cross);
+\end{tikzpicture}
+}
+\end{center}
+\vspace{0.05cm}
+\begin{center}
+\begin{tikzpicture}
+\node[draw=ResearchColor,rounded corners=4pt,fill=CardBg,text width=0.70\paperwidth,
+align=center,inner xsep=8pt,inner ysep=6pt,font=\fontsize{9.5}{11.5}\selectfont\bfseries]
+{None of these methods jointly controls station access and per-flow TCP demand in CATRA's target setting.};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}{MAC Work: EIFS and Fair Backoff}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Flexible EIFS (Li et al.)}
+\begin{itemize}
+\item Fixed EIFS can produce unfair allocation.
+\item Flexible EIFS uses sensing-range frame information.
+\item Spatial reuse can prevent reliable recognition of that information.
+\end{itemize}
+\column{0.48\textwidth}
+\textbf{Fair backoff (Fang et al.)}
+\begin{itemize}
+\item Estimate own and neighboring channel utilization.
+\item Adjust backoff toward statistical fair access.
+\item The target fair-access value must be predefined and depends on topology.
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{MAC Work: Contention-Window Control}
+\PaperClaim{Earlier CW-control studies seek per-flow fairness, but the CATRA paper highlights their single-hop focus.}
+\begin{itemize}
+\item A contention window is a natural actuator because it changes expected access delay.
+\item Single-hop assumptions simplify which flows and stations share the channel.
+\item Multi-hop networks introduce forwarding, overlapping contention domains, and hidden carrier-sensing flows.
+\item CATRA therefore derives a local fair share from SEND, TX, and CS flow counts.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{TCP and Network-Layer Approaches}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Neighborhood RED}
+\begin{itemize}
+\item Observe neighborhood channel usage.
+\item Detect local congestion.
+\item Drop packets according to flow usage to improve fairness.
+\end{itemize}
+\column{0.48\textwidth}
+\textbf{TCP window limitation}
+\begin{itemize}
+\item Conventional TCP windows can become too large.
+\item Excess packets reduce spatial reuse and increase contention.
+\item Prior work argues that an optimal TCP rate/window may exist.
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Earlier Cross-Layer TCP Methods}
+\begin{itemize}
+\item TCP-CL reports MAC link failure using the retry-limit state, but heavy contention can be mistaken for link failure.
+\item TCP-FEW limits congestion-window growth to avoid unnecessary contention.
+\item Channel-efficiency methods derive a better TCP rate from MAC information.
+\item The CATRA paper argues that these approaches do not directly repair MAC contention or cannot isolate the relevant intermediate-node channel efficiency.
+\end{itemize}
+\vspace{0.35cm}
+\KeyPoint{CATRA adds an explicit MAC fairness controller before applying transport-rate control.}
+\end{frame}
+
+\begin{frame}{Related Work Comparison}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{5.1cm}}
+\toprule
+\textbf{Category} & \textbf{Control} & \textbf{Gap identified by CATRA} \\
+\midrule
+MAC-only & EIFS, backoff, CW & Target depends on topology or evaluation is single-hop. \\
+TCP / network & Drop policy, cwnd/rate & Wireless MAC contention remains untreated. \\
+Cross-layer & MAC information $\rightarrow$ TCP & Intermediate-node efficiency or MAC unfairness remains unresolved. \\
+CATRA & CW + TCP delay/cwnd & Joint station-level and flow-level feedback. \\
+\bottomrule
+\end{tabular}
+\end{frame}
