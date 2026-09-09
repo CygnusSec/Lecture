@@ -1,0 +1,8 @@
+% Slide 17 of 34
+\begin{frame}{Configure Ubuntu's WAN Interface}
+  \SlideTag{WAN: ens160}
+  \Cmd{ip link set dev ens160 down}\\[0.3cm]
+  \Cmd{ip addr add 10.10.1.1/24 dev ens160}\\[0.3cm]
+  \Cmd{ip link set dev ens160 up}\\[0.55cm]
+  \Cmd{ip route}
+\end{frame}

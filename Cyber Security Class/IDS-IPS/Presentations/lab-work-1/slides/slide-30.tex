@@ -1,0 +1,8 @@
+% Slide 30 of 34
+\begin{frame}{Start the Attacker Container}
+  \Cmd{RUN="docker run -dit --privileged"}\\[0.25cm]
+  \Cmd{NET="--network WANNetwork"}\\[0.25cm]
+  \Cmd{HOST="--hostname kali -p 9392:9392"}\\[0.25cm]
+  \Cmd{IMAGE=\$REG/kali-linux:latest}\\[0.25cm]
+  \Cmd{\$RUN \$NET \$HOST --name attacker \$IMAGE}
+\end{frame}

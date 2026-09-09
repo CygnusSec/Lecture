@@ -1,0 +1,10 @@
+% Slide 23 of 34
+\begin{frame}{Configure Kali and Metasploitable2 Temporarily}
+  Replace the placeholders with the host's assigned address and router gateway.
+  \vspace{0.25cm}
+  \Cmd{ip link set dev eth0 down}\\
+  \Cmd{ip addr add x.x.x.x/24 dev eth0}\\
+  \Cmd{ip link set dev eth0 up}\\
+  \Cmd{ip route add default via x.x.x.1}\\[0.3cm]
+  \Cmd{ip route}\quad\SmallNote{Confirm the address, connected route, and default route.}
+\end{frame}

@@ -1,0 +1,10 @@
+% Slide 22 of 34
+\begin{frame}{Temporary IPv4 Forwarding}
+  Use either command-line method for a temporary setting:
+  \vspace{0.35cm}
+  \Cmd{sudo sysctl -w net.ipv4.ip\_forward=1}\\[0.35cm]
+  or\\[0.35cm]
+  \Cmd{P=/proc/sys/net/ipv4/ip\_forward}\\
+  \Cmd{sudo echo 1 > \$P}
+  \vspace{0.25cm}
+\end{frame}

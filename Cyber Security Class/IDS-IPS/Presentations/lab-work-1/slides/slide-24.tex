@@ -1,0 +1,10 @@
+% Slide 24 of 34
+\begin{frame}[fragile]{Persist the Kali and Metasploitable2 Configuration}
+  Edit a file under \Cmd{/etc/network/interfaces.d/*}:
+  \begin{verbatim}
+allow-hotplug eth0
+iface eth0 static
+    address 10.10.1.x/24
+    gateway 10.10.1.1
+  \end{verbatim}
+\end{frame}

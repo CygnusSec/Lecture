@@ -1,0 +1,10 @@
+% Slide 21 of 34
+\begin{frame}[fragile]{Enable IPv4 Forwarding Persistently}
+  Ensure \Cmd{net.ipv4.ip\_forward} is enabled in \Cmd{/etc/sysctl.conf}:
+  \vspace{0.35cm}
+  \begin{verbatim}
+net.ipv4.ip_forward=1
+sudo sysctl -p /etc/sysctl.conf
+  \end{verbatim}
+  \KeyPoint{The Ubuntu router must forward packets between the WAN and server networks.}
+\end{frame}

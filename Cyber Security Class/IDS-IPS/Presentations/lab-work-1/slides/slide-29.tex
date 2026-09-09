@@ -1,0 +1,9 @@
+% Slide 29 of 34
+\begin{frame}{Create the Server Docker Network}
+  \Cmd{D="docker network create"}\\[0.25cm]
+  \Cmd{N=172.16.1.0/24}\\[0.25cm]
+  \Cmd{R="--ip-range=\$N"}\\[0.25cm]
+  \Cmd{S="--subnet=\$N"}\\[0.25cm]
+  \Cmd{G="--gateway=172.16.1.254"}\\[0.25cm]
+  \Cmd{\$D \$R \$S \$G ServerNetwork}
+\end{frame}

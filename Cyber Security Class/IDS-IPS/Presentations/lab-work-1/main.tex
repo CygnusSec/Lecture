@@ -1,0 +1,100 @@
+% Recovered from output/pdf/main.pdf: 34-page standalone Lab Work 1 deck.
+% Uses the current shared IDS-IPS presentation theme and background.
+\documentclass[aspectratio=169,11pt]{beamer}
+\input{../config/packages}
+% Resolve the shared theme's images/ paths from the Presentations root.
+\makeatletter
+\def\input@path{{../}}
+\makeatother
+\graphicspath{{../}}
+\input{../config/colors}
+\input{../config/theme}
+\input{../config/commands}
+
+\title{Lab Work 01}
+\subtitle{Create and Set Up a Virtual Lab Environment}
+\author{Tran Dai Duong}
+\institute{Institute of Information Technology\\Vietnam Academy of Science and Technology}
+\date{\today}
+
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+    \begin{beamercolorbox}[wd=.84\paperwidth,ht=2.7ex,dp=1.2ex,left]{author in head/foot}
+      \hspace{0.45cm}\color{SecondaryColor}\fontsize{7}{8.5}\selectfont
+      Lab Work 01 -- Create and Set Up a Virtual Lab Environment
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.16\paperwidth,ht=2.7ex,dp=1.2ex,right]{date in head/foot}
+      \color{SecondaryColor}\fontsize{7}{8.5}\selectfont
+      \insertframenumber/\inserttotalframenumber\hspace{0.45cm}
+    \end{beamercolorbox}%
+  }%
+}
+
+\definecolor{CommandGreen}{RGB}{0,175,70}
+\newcommand{\Cmd}[1]{{\color{CommandGreen}\ttfamily\fontsize{18}{22}\selectfont\mbox{#1}}}
+\makeatletter
+\renewcommand{\verbatim@font}{\normalfont\ttfamily\fontsize{18}{22}\selectfont}
+\makeatother
+\AtBeginEnvironment{frame}{\fontsize{18}{22}\selectfont}
+\setbeamerfont{itemize/enumerate body}{size=\fontsize{18}{22}\selectfont}
+\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{18}{22}\selectfont}
+\renewcommand{\SlideTag}[1]{%
+  {\color{\FrameAccent}\fontsize{18}{22}\selectfont\bfseries #1}\par\vspace{0.25cm}%
+}
+\renewcommand{\SmallNote}[1]{%
+  {\color{SecondaryColor}\fontsize{18}{22}\selectfont #1}%
+}
+\renewcommand{\KeyPoint}[1]{%
+  \begin{center}
+  \begin{tikzpicture}
+    \node[draw=\FrameAccent,rounded corners=4pt,fill=CardBg,
+      inner xsep=10pt,inner ysep=7pt,text width=0.78\paperwidth,
+      align=center,font=\fontsize{18}{22}\selectfont\bfseries]{#1};
+  \end{tikzpicture}
+  \end{center}%
+}
+\newcommand{\ScreenshotFrame}[2]{%
+  \begin{frame}{#1}
+    \centering
+    \includegraphics[width=0.78\paperwidth,height=0.68\paperheight,keepaspectratio]{#2}
+  \end{frame}%
+}
+
+\begin{document}
+
+\input{slides/slide-01}
+\input{slides/slide-02}
+\input{slides/slide-03}
+\input{slides/slide-04}
+\input{slides/slide-05}
+\input{slides/slide-06}
+\input{slides/slide-07}
+\input{slides/slide-08}
+\input{slides/slide-09}
+\input{slides/slide-10}
+\input{slides/slide-11}
+\input{slides/slide-12}
+\input{slides/slide-13}
+\input{slides/slide-14}
+\input{slides/slide-15}
+\input{slides/slide-16}
+\input{slides/slide-17}
+\input{slides/slide-18}
+\input{slides/slide-19}
+\input{slides/slide-20}
+\input{slides/slide-21}
+\input{slides/slide-22}
+\input{slides/slide-23}
+\input{slides/slide-24}
+\input{slides/slide-25}
+\input{slides/slide-26}
+\input{slides/slide-27}
+\input{slides/slide-28}
+\input{slides/slide-29}
+\input{slides/slide-30}
+\input{slides/slide-31}
+\input{slides/slide-32}
+\input{slides/slide-33}
+\input{slides/slide-34}
+
+\end{document}

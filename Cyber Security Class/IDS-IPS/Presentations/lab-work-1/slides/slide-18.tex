@@ -1,0 +1,8 @@
+% Slide 18 of 34
+\begin{frame}{Configure Ubuntu's Server Interface}
+  \SlideTag{SERVER: ens192}
+  \Cmd{ip link set dev ens192 down}\\[0.3cm]
+  \Cmd{ip addr add 172.16.1.1/24 dev ens192}\\[0.3cm]
+  \Cmd{ip link set dev ens192 up}\\[0.55cm]
+  \SmallNote{Verify both connected routes and their source addresses.}
+\end{frame}

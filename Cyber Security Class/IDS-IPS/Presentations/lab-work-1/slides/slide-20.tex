@@ -1,0 +1,11 @@
+% Slide 20 of 34
+\begin{frame}[fragile]{Add the Server-Facing Interface to Netplan}
+  Continue the \Cmd{ethernets} configuration:
+  \begin{verbatim}
+    ens192:
+      addresses: [172.16.1.1/24]
+      dhcp4: false
+  version: 2
+  \end{verbatim}
+  \SmallNote{Reference: \href{https://netplan.readthedocs.io/en/stable/examples/}{Netplan configuration examples}}
+\end{frame}

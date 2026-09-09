@@ -1,0 +1,9 @@
+% Slide 32 of 34
+\begin{frame}{Start the Victim Container}
+  \Cmd{RUN="docker run -dit --privileged"}\\[0.25cm]
+  \Cmd{NET="--network ServerNetwork"}\\[0.25cm]
+  \Cmd{HOST="--hostname msfadmin --name victim"}\\[0.25cm]
+  \Cmd{IMAGE=\$REG/metasploitable2:latest}\\[0.25cm]
+  \Cmd{\$RUN \$NET \$HOST \$IMAGE}\\[0.35cm]
+  \Cmd{docker attach <container\_name>}
+\end{frame}

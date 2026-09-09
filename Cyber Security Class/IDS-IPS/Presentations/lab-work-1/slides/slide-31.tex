@@ -1,0 +1,10 @@
+% Slide 31 of 34
+\begin{frame}{Start the Router Container}
+  \Cmd{RUN="docker run -dit --privileged"}\\[0.25cm]
+  \Cmd{NET="--network WANNetwork"}\\[0.25cm]
+  \Cmd{HOST="--hostname ubuntu --name router"}\\[0.25cm]
+  \Cmd{IMAGE=\$REG/ubuntu-router:latest}\\[0.25cm]
+  \Cmd{\$RUN \$NET \$HOST \$IMAGE}\\[0.35cm]
+  \Cmd{SN=ServerNetwork}\\[0.25cm]
+  \Cmd{docker network connect \$SN router}
+\end{frame}

@@ -1,0 +1,11 @@
+% Slide 19 of 34
+\begin{frame}[fragile]{Make the Ubuntu Network Configuration Persistent}
+  Edit \Cmd{/etc/netplan/00-installer-config.yaml}:
+  \begin{verbatim}
+network:
+  ethernets:
+    ens160:
+      addresses: [10.10.1.1/24]
+      dhcp4: false
+  \end{verbatim}
+\end{frame}
