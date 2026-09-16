@@ -29,6 +29,7 @@
 *.vrb
 *.xdv
 *-blx.bib
+*.py
 
 # Generated package directories
 _minted-*/

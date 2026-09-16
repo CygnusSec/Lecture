@@ -1,0 +1,236 @@
+% Standalone Lab Work 2 deck using the current shared IDS-IPS theme.
+\documentclass[aspectratio=169,11pt]{beamer}
+\input{../config/packages}
+\makeatletter
+\def\input@path{{../}}
+\makeatother
+\graphicspath{{../}}
+\input{../config/colors}
+\input{../config/theme}
+\input{../config/commands}
+
+\title{Network Reconnaissance, Vulnerability Assessment, and Controlled Exploitation}
+\subtitle{Nmap · NSE · OPENVAS / GVM · Metasploit Framework}
+\author{Tran Dai Duong}
+\institute{Institute of Information Technology\\Vietnam Academy of Science and Technology}
+\date{\today}
+
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+    \begin{beamercolorbox}[wd=.84\paperwidth,ht=2.7ex,dp=1.2ex,left]{author in head/foot}
+      \hspace{0.45cm}\color{SecondaryColor}\fontsize{7}{8.5}\selectfont
+      Lab Work 02 -- Network Security Assessment
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.16\paperwidth,ht=2.7ex,dp=1.2ex,right]{date in head/foot}
+      \color{SecondaryColor}\fontsize{7}{8.5}\selectfont
+      \insertframenumber/\inserttotalframenumber\hspace{0.45cm}
+    \end{beamercolorbox}%
+  }%
+}
+
+\definecolor{CommandGreen}{RGB}{0,175,70}
+% XeLaTeX 16 pt visually matches the source PowerPoint's 18 pt body text
+% with this theme/font family while preserving comfortable projection size.
+\newcommand{\BodyText}[1]{{\fontsize{16}{19.5}\selectfont #1}}
+\newcommand{\CommandText}[1]{{\color{CommandGreen}\ttfamily\fontsize{16}{19.5}\selectfont\raggedright #1}}
+\renewcommand{\KeyPoint}[1]{%
+  \begin{center}
+  \begin{tikzpicture}
+    \node[draw=WarningColor,rounded corners=4pt,fill=CardBg,
+      inner xsep=10pt,inner ysep=5pt,text width=0.78\paperwidth,
+      align=center,font=\fontsize{16}{19}\selectfont\bfseries]{#1};
+  \end{tikzpicture}
+  \end{center}%
+}
+\setbeamerfont{itemize/enumerate body}{size=\fontsize{16}{19.5}\selectfont}
+\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{16}{19.5}\selectfont}
+
+\begin{document}
+
+\input{slides/slide-001}
+\input{slides/slide-002}
+\input{slides/slide-004}
+\input{slides/slide-005}
+\input{slides/slide-006}
+\input{slides/slide-007}
+\input{slides/slide-008}
+\input{slides/slide-009}
+\input{slides/slide-010}
+\input{slides/slide-011}
+\input{slides/slide-012}
+\input{slides/slide-013}
+\input{slides/slide-015}
+\input{slides/slide-016}
+\input{slides/slide-017}
+\input{slides/slide-018}
+\input{slides/slide-020}
+\input{slides/slide-022}
+\input{slides/slide-023}
+\input{slides/slide-024}
+\input{slides/slide-025}
+\input{slides/slide-026}
+\input{slides/slide-027}
+\input{slides/slide-028}
+\input{slides/slide-029}
+\input{slides/slide-031}
+\input{slides/slide-032}
+\input{slides/slide-033}
+\input{slides/slide-034}
+\input{slides/slide-035}
+\input{slides/slide-036}
+\input{slides/slide-039}
+\input{slides/slide-041}
+\input{slides/slide-042}
+\input{slides/slide-043}
+\input{slides/slide-044}
+\input{slides/slide-045}
+\input{slides/slide-046}
+\input{slides/slide-048}
+\input{slides/slide-049}
+\input{slides/slide-052}
+\input{slides/slide-053}
+\input{slides/slide-054}
+\input{slides/slide-055}
+\input{slides/slide-056}
+\input{slides/slide-057}
+\input{slides/slide-058}
+\input{slides/slide-059}
+\input{slides/slide-060}
+\input{slides/slide-061}
+\input{slides/slide-062}
+\input{slides/slide-064}
+\input{slides/slide-066}
+\input{slides/slide-067}
+\input{slides/slide-068}
+\input{slides/slide-069}
+\input{slides/slide-070}
+\input{slides/slide-071}
+\input{slides/slide-072}
+\input{slides/slide-076}
+\input{slides/slide-077}
+\input{slides/slide-078}
+\input{slides/slide-079}
+\input{slides/slide-080}
+\input{slides/slide-081}
+\input{slides/slide-084}
+\input{slides/slide-086}
+\input{slides/slide-087}
+\input{slides/slide-088}
+\input{slides/slide-089}
+\input{slides/slide-090}
+\input{slides/slide-091}
+\input{slides/slide-093}
+\input{slides/slide-094}
+\input{slides/slide-095}
+\input{slides/slide-096}
+\input{slides/slide-098}
+\input{slides/slide-099}
+\input{slides/slide-100}
+\input{slides/slide-101}
+\input{slides/slide-102}
+\input{slides/slide-103}
+\input{slides/slide-104}
+\input{slides/slide-106}
+\input{slides/slide-107}
+\input{slides/slide-108}
+\input{slides/slide-109}
+\input{slides/slide-111}
+\input{slides/slide-112}
+\input{slides/slide-113}
+\input{slides/slide-114}
+\input{slides/slide-116}
+\input{slides/slide-117}
+\input{slides/slide-119}
+\input{slides/slide-120}
+\input{slides/slide-121}
+\input{slides/slide-122}
+\input{slides/slide-123}
+\input{slides/slide-124}
+\input{slides/slide-125}
+\input{slides/slide-126}
+\input{slides/slide-130}
+\input{slides/slide-133}
+\input{slides/slide-134}
+\input{slides/slide-135}
+\input{slides/slide-136}
+\input{slides/slide-138}
+\input{slides/slide-139}
+\input{slides/slide-140}
+\input{slides/slide-141}
+\input{slides/slide-142}
+\input{slides/slide-143}
+\input{slides/slide-144}
+\input{slides/slide-146}
+\input{slides/slide-148}
+\input{slides/slide-149}
+\input{slides/slide-150}
+\input{slides/slide-151}
+\input{slides/slide-152}
+\input{slides/slide-153}
+\input{slides/slide-154}
+\input{slides/slide-155}
+\input{slides/slide-156}
+\input{slides/slide-157}
+\input{slides/slide-159}
+\input{slides/slide-160}
+\input{slides/slide-162}
+\input{slides/slide-163}
+\input{slides/slide-164}
+\input{slides/slide-165}
+\input{slides/slide-166}
+\input{slides/slide-167}
+\input{slides/slide-168}
+\input{slides/slide-169}
+\input{slides/slide-170}
+\input{slides/slide-171}
+\input{slides/slide-172}
+\input{slides/slide-173}
+\input{slides/slide-174}
+\input{slides/slide-175}
+\input{slides/slide-177}
+\input{slides/slide-178}
+\input{slides/slide-179}
+\input{slides/slide-180}
+\input{slides/slide-184}
+\input{slides/slide-185}
+\input{slides/slide-186}
+\input{slides/slide-187}
+\input{slides/slide-188}
+\input{slides/slide-189}
+\input{slides/slide-191}
+\input{slides/slide-192}
+\input{slides/slide-194}
+\input{slides/slide-195}
+\input{slides/slide-196}
+\input{slides/slide-197}
+\input{slides/slide-198}
+\input{slides/slide-200}
+\input{slides/slide-201}
+\input{slides/slide-203}
+\input{slides/slide-204}
+\input{slides/slide-205}
+\input{slides/slide-206}
+\input{slides/slide-207}
+\input{slides/slide-208}
+\input{slides/slide-209}
+\input{slides/slide-210}
+\input{slides/slide-211}
+\input{slides/slide-212}
+\input{slides/slide-213}
+\input{slides/slide-215}
+\input{slides/slide-219}
+\input{slides/slide-220}
+\input{slides/slide-221}
+\input{slides/slide-222}
+\input{slides/slide-224}
+\input{slides/slide-225}
+\input{slides/slide-226}
+\input{slides/slide-227}
+\input{slides/slide-228}
+\input{slides/slide-229}
+\input{slides/slide-230}
+\input{slides/slide-231}
+\input{slides/slide-232}
+\input{slides/slide-234}
+
+\end{document}

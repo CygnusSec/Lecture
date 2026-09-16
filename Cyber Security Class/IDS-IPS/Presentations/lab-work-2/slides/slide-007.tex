@@ -1,0 +1,14 @@
+% Authorized topology
+\begin{frame}{Authorized Lab Environment}
+  \centering
+  \begin{tikzpicture}[node distance=0.72cm,>=Latex]
+    \node[draw=ResearchColor,rounded corners=4pt,fill=CardBg,text width=4.6cm,
+      align=center,minimum height=1.15cm] (kali) {\textbf{Kali Linux}\\172.16.1.20};
+    \node[draw=MethodColor,rounded corners=4pt,fill=CardBg,text width=4.6cm,
+      align=center,minimum height=1.05cm,below=of kali] (net) {\textbf{Authorized Lab Network}\\172.16.1.0/24};
+    \node[draw=WarningColor,rounded corners=4pt,fill=CardBg,text width=4.6cm,
+      align=center,minimum height=1.15cm,below=of net] (target) {\textbf{Metasploitable2}\\172.16.1.10};
+    \draw[->,very thick,ResearchColor] (kali) -- (net);
+    \draw[->,very thick,ResearchColor] (net) -- (target);
+  \end{tikzpicture}
+\end{frame}

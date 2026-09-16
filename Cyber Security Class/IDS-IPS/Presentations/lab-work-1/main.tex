@@ -31,25 +31,26 @@
 }
 
 \definecolor{CommandGreen}{RGB}{0,175,70}
-\newcommand{\Cmd}[1]{{\color{CommandGreen}\ttfamily\fontsize{18}{22}\selectfont\mbox{#1}}}
+% XeLaTeX 16 pt visually matches PowerPoint 18 pt with this theme/font family.
+\newcommand{\Cmd}[1]{{\color{CommandGreen}\ttfamily\fontsize{16}{19.5}\selectfont\mbox{#1}}}
 \makeatletter
-\renewcommand{\verbatim@font}{\normalfont\ttfamily\fontsize{18}{22}\selectfont}
+\renewcommand{\verbatim@font}{\normalfont\ttfamily\fontsize{16}{19.5}\selectfont}
 \makeatother
-\AtBeginEnvironment{frame}{\fontsize{18}{22}\selectfont}
-\setbeamerfont{itemize/enumerate body}{size=\fontsize{18}{22}\selectfont}
-\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{18}{22}\selectfont}
+\AtBeginEnvironment{frame}{\fontsize{16}{19.5}\selectfont}
+\setbeamerfont{itemize/enumerate body}{size=\fontsize{16}{19.5}\selectfont}
+\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{16}{19.5}\selectfont}
 \renewcommand{\SlideTag}[1]{%
-  {\color{\FrameAccent}\fontsize{18}{22}\selectfont\bfseries #1}\par\vspace{0.25cm}%
+  {\color{\FrameAccent}\fontsize{16}{19.5}\selectfont\bfseries #1}\par\vspace{0.25cm}%
 }
 \renewcommand{\SmallNote}[1]{%
-  {\color{SecondaryColor}\fontsize{18}{22}\selectfont #1}%
+  {\color{SecondaryColor}\fontsize{16}{19.5}\selectfont #1}%
 }
 \renewcommand{\KeyPoint}[1]{%
   \begin{center}
   \begin{tikzpicture}
     \node[draw=\FrameAccent,rounded corners=4pt,fill=CardBg,
       inner xsep=10pt,inner ysep=7pt,text width=0.78\paperwidth,
-      align=center,font=\fontsize{18}{22}\selectfont\bfseries]{#1};
+      align=center,font=\fontsize{16}{19.5}\selectfont\bfseries]{#1};
   \end{tikzpicture}
   \end{center}%
 }

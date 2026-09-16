@@ -1,0 +1,36 @@
+% Generated from source page 15
+\begin{frame}[t]{nmap: General tip 2.}
+  \BodyText{Nmap performs discovery and enumeration in a clear sequence, making each stage easier to interpret.}
+
+  \vspace{0.22cm}
+  \centering
+  \begin{tikzpicture}[
+    flowbox/.style={
+      draw=ResearchColor,
+      line width=1.15pt,
+      rounded corners=6pt,
+      fill=CardBg,
+      minimum width=4.25cm,
+      minimum height=1.18cm,
+      align=center,
+      inner xsep=9pt,
+      font=\fontsize{16}{19.5}\selectfont\bfseries,
+      text=TitleColor
+    },
+    flowarrow/.style={
+      -{Latex[length=3.2mm,width=2.4mm]},
+      line width=1.15pt,
+      draw=ResearchColor,
+      rounded corners=7pt
+    }
+  ]
+    \node[flowbox] (discover) at (-3.65,1.55) {Host Discovery};
+    \node[flowbox] (ports)    at (0,0)       {Port Scanning};
+    \node[flowbox] (service)  at (3.65,-1.55){Service and OS\\Detection};
+
+    \draw[flowarrow]
+      (discover.south) -- ++(0,-0.48) -| (ports.west);
+    \draw[flowarrow]
+      (ports.east) -- ++(0.72,0) |- (service.north);
+  \end{tikzpicture}
+\end{frame}

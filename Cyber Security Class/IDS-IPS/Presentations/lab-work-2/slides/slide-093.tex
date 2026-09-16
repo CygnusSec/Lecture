@@ -1,0 +1,16 @@
+% Generated from source page 46
+\begin{frame}{OPENVAS / GVM Conceptual Architecture}
+  \centering
+  \begin{tikzpicture}[node distance=0.25cm,>=Latex,
+    component/.style={draw=MethodColor,rounded corners=3pt,fill=CardBg,
+      minimum width=6.5cm,minimum height=0.52cm,align=center,font=\fontsize{15}{18}\selectfont\bfseries}]
+    \node[component] (target) {Target Systems};
+    \node[component,below=of target] (scanner) {OpenVAS Scanner / Scanner Components};
+    \node[component,below=of scanner] (ospd) {ospd-openvas};
+    \node[component,below=of ospd] (gvmd) {gvmd};
+    \node[component,below=of gvmd] (gsa) {GSA / gsad};
+    \node[component,below=of gsa] (browser) {Web Browser};
+    \foreach \x/\y in {target/scanner,scanner/ospd,ospd/gvmd,gvmd/gsa,gsa/browser}
+      \draw[->,thick,MethodColor] (\x) -- (\y);
+  \end{tikzpicture}
+\end{frame}

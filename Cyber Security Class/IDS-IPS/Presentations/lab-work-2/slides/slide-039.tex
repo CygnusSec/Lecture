@@ -1,0 +1,12 @@
+% Generated from source page 21
+\begin{frame}[t]{nmap: Port Scanning - Six Port States. (continued)}
+  \BodyText{Three states indicate an ambiguous scan result:}
+
+  \vspace{0.12cm}
+  \begin{itemize}
+    \setlength{\itemsep}{0.22cm}
+    \item \BodyText{\textcolor{CommandGreen}{\bfseries unfiltered}: The port is accessible, but Nmap cannot tell whether it is open or closed.}
+    \item \BodyText{\textcolor{CommandGreen}{\bfseries open\textbar filtered}: Nmap cannot tell whether the port is open or filtered.}
+    \item \BodyText{\textcolor{CommandGreen}{\bfseries closed\textbar filtered}: Nmap cannot tell whether the port is closed or filtered; this state is used only by the IP ID idle scan.}
+  \end{itemize}
+\end{frame}

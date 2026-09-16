@@ -1,0 +1,15 @@
+% End-to-end workflow
+\begin{frame}{Security Assessment Workflow}
+  \centering
+  \begin{tikzpicture}[node distance=0.25cm,>=Latex,
+    stage/.style={draw=ResearchColor,rounded corners=3pt,fill=CardBg,
+      minimum width=7cm,minimum height=0.47cm,align=center,font=\fontsize{14}{17}\selectfont\bfseries}]
+    \node[stage] (a) {Scope \& Authorization};
+    \node[stage,below=of a] (b) {Reconnaissance and Host Discovery};
+    \node[stage,below=of b] (c) {Port, Service, and OS Enumeration};
+    \node[stage,below=of c] (d) {Vulnerability Assessment and Triage};
+    \node[stage,below=of d] (e) {Controlled Exploitation};
+    \node[stage,below=of e] (f) {Evidence, Remediation, and Reporting};
+    \foreach \x/\y in {a/b,b/c,c/d,d/e,e/f}\draw[->,thick,ResearchColor] (\x) -- (\y);
+  \end{tikzpicture}
+\end{frame}
