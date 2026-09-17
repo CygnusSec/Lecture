@@ -1,0 +1,35 @@
+% Source PDF page 35 - How we use the Snort? (lab topology with Snort IDS/IPS)
+\begin{frame}{How we use the Snort?}
+  \centering
+  \begin{tikzpicture}[>=Latex,
+    host/.style={draw=ResearchColor,line width=1.1pt,rounded corners=4pt,
+      fill=white,minimum width=3.45cm,minimum height=1.55cm,
+      text width=3.05cm,align=center,font=\fontsize{15}{18}\selectfont\bfseries},
+    router/.style={draw=MethodColor,line width=1.2pt,rounded corners=4pt,
+      fill=white,minimum width=3.15cm,minimum height=1.75cm,
+      text width=2.75cm,align=center,font=\fontsize{15}{18}\selectfont\bfseries},
+    ip/.style={font=\fontsize{13}{16}\selectfont\bfseries,text=TitleColor},
+    role/.style={text width=2.9cm,align=center,font=\fontsize{14}{17}\selectfont\bfseries},
+    tag/.style={draw=MethodColor,fill=MethodColor!25,rounded corners=3pt,
+      inner xsep=8pt,inner ysep=4pt,font=\fontsize{13}{16}\selectfont\bfseries,text=TitleColor}]
+
+    \node[host] (kali) at (-5.0,0) {\textcolor{ResearchColor}{KALI}\\Kali Linux};
+    \node[router] (gateway) at (0,0) {\textcolor{MethodColor}{IDS}\\Ubuntu Server};
+    \node[host] (victim) at (5.0,0) {\textcolor{ResearchColor}{SERVER}\\{\fontsize{11}{13}\selectfont Metasploitable}};
+
+    \draw[line width=2.2pt,ResearchColor] (kali.east) -- (gateway.west);
+    \draw[line width=2.2pt,MethodColor] (gateway.east) -- (victim.west);
+
+    \node[tag] (snort) at (0,2.7) {IDS/IPS -- Snort};
+    \draw[->,line width=1.6pt,WarningColor] (snort.south) -- (gateway.north);
+
+    \node[ip] at (-5.0,1.95) {10.10.1.10};
+    \node[ip,font=\fontsize{12}{15}\selectfont\bfseries] at (1.4,1.95) {172.16.1.1};
+    \node[ip] at (5.0,1.95) {172.16.1.10};
+    \node[ip,font=\fontsize{12}{15}\selectfont\bfseries] at (-1.4,-1.9) {10.10.1.1};
+
+    \node[role,text=WarningColor,below=0.5cm of kali] {Client\\Attacker};
+    \node[role,text=ConclusionColor,below=0.5cm of gateway] {Firewall\\IDS};
+    \node[role,text=ResearchColor,below=0.5cm of victim] {Server\\Victim};
+  \end{tikzpicture}
+\end{frame}

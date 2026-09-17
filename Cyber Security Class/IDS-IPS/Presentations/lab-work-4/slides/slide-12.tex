@@ -1,0 +1,13 @@
+% Source PDF page 12
+\begin{frame}[t]{Detection Engine}
+  \fontsize{12.5}{15}\selectfont
+  \vspace{0.1cm}
+  The Detection Engine is the core of Snort's intrusion detection capabilities. It analyzes the processed network traffic (from the Packet Capture and Preprocessor layers) to detect signs of malicious activity based on predefined rules.
+  \vspace{0.15cm}
+  \begin{itemize}
+    \item \textcolor{WarningColor}{Signature-Based Detection:} Matches network traffic against predefined attack signatures.
+    \item \textcolor{WarningColor}{Anomaly-Based Detection:} Identifies traffic patterns that deviate from established baselines (normal behavior).
+    \item \textcolor{WarningColor}{Stateful Inspection:} Tracks the state of connections and analyzes traffic within the context of the entire session.
+    \item \textcolor{WarningColor}{Rule Processing:} The engine processes Snort rules to determine if a packet matches a threat pattern.
+  \end{itemize}
+\end{frame}

@@ -1,0 +1,19 @@
+% Source PDF page 31
+\begin{frame}[t]{Installation}
+  \fontsize{14}{17}\selectfont
+  Run with root privileges (sudo)
+  \begin{itemize}
+    \item Build and install from source code:
+  \end{itemize}
+  Step 10: Edit configurations in snort.conf.
+  \CodeBlock{13}{16}{%
+    \$ vim /etc/snort/snort.conf\par
+    edit HOME\_NET:\par}
+  \vspace{0.3cm}
+  \begin{tikzpicture}
+    \node[draw=SecondaryColor,rounded corners=3pt,inner xsep=12pt,inner ysep=10pt,
+      text width=0.86\paperwidth,align=left]{%
+      {\color{ResearchColor}\ttfamily\fontsize{12}{15}\selectfont \# Setup the network addresses you are protecting\par}
+      {\ttfamily\fontsize{12}{15}\selectfont \textcolor{ResearchColor}{ipvar} \textcolor{ResearchColor}{HOME\_NET} [\textcolor{WarningColor}{10.10.1.1/32},\textcolor{ConclusionColor}{172.16.1.0/24}]\par}};
+  \end{tikzpicture}
+\end{frame}

@@ -1,0 +1,14 @@
+% Source PDF page 11
+\begin{frame}[t]{Preprocessors}
+  \fontsize{12}{14.5}\selectfont
+  \vspace{0.1cm}
+  Preprocessors are modules that analyze and manipulate network traffic before it reaches the detection engine. They prepare the data for more accurate and efficient intrusion detection by reassembling packets, decoding protocols, and identifying patterns.
+  \vspace{0.15cm}
+  \begin{itemize}
+    \item \textcolor{WarningColor}{Packet Normalization:} Adjusts packet data to ensure consistency and correct interpretation.
+    \item \textcolor{WarningColor}{Protocol Decoding:} Decodes specific protocols (HTTP, FTP, DNS, etc.) to make them easier for Snort to analyze.
+    \item \textcolor{WarningColor}{Stream Reassembly:} Rebuilds packet streams (such as TCP or UDP) to detect attacks that span multiple packets.
+    \item \textcolor{WarningColor}{Traffic Analysis:} Identifies suspicious or malicious traffic patterns.
+    \item \textcolor{WarningColor}{Protocol Anomaly Detection:} Identifies unusual or malformed protocol behavior.
+  \end{itemize}
+\end{frame}

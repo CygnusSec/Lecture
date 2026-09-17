@@ -1,0 +1,28 @@
+% Source PDF page 27
+\begin{frame}[t,allowframebreaks]{Installation}
+  \fontsize{13.5}{16.5}\selectfont
+  Run with root privileges (sudo)
+  \begin{itemize}
+    \item Install using packages: {\color{CommandGreen}\ttfamily \$ apt install snort -y} (the easy way but not using in this lab)
+    \item Build and install from source code: (using the way)
+  \end{itemize}
+  \vspace{0.1cm}
+  Step 1: Update and install support packages: Pcap, PCRE, libdnet, DAQ, lib.
+  \CodeBlock{13}{16}{%
+    \$ apt install -y build-essential\par
+    \$ apt install -y libpcap-dev libpcre3-dev libdumbnet-dev\par
+    \$ apt install -y bison flex libluajit-5.1-2-dev\par
+    \$ apt install -y zlib1g-dev liblzma-dev openssl libssl-dev libnghttp2-dev\par}
+  \vspace{0.06cm}
+  Step 2: Create a directory containing the installation source code and install.
+  \CodeBlock{13}{16}{%
+    \$ mkdir -p \textasciitilde/snort\_src\par
+    \$ cd \textasciitilde/snort\_src\par}
+  \vspace{0.06cm}
+  Step 3: Download, unzip, install DAQ package:
+  \CodeBlock{13}{16}{%
+    \$ wget https://www.snort.org/downloads/snort/daq-2.0.7.tar.gz\par
+    \$ tar -xzvf daq-2.0.7.tar.gz\par
+    \$ cd daq-2.0.7\par
+    \$ ./configure \&\& make \&\& make install\par}
+\end{frame}

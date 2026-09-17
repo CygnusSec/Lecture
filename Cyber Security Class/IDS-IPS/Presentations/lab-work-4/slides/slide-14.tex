@@ -1,0 +1,24 @@
+% Source PDF page 14 - Detection Engine: Internal Representation
+\begin{frame}{Detection Engine: Internal Representation}
+  \centering
+  \vspace{0.2cm}
+  \begin{tikzpicture}[>=Latex,
+    hdr/.style={fill=ResearchColor,text=white,inner xsep=8pt,inner ysep=6pt,
+      font=\ttfamily\fontsize{12}{15}\selectfont,align=left},
+    opt/.style={fill=yellow,text=black,inner xsep=8pt,inner ysep=6pt,
+      font=\ttfamily\fontsize{12}{15}\selectfont,align=left,text width=6.6cm}]
+
+    \node[font=\fontsize{13}{16}\selectfont,text=TitleColor] (rn) at (-1.5,0.9) {Rule Node};
+    \node[hdr] (h1) at (-1.5,0) {Alert tcp 1.1.1.1 any -> 2.2.2.2 any};
+
+    \node[font=\fontsize{13}{16}\selectfont,text=TitleColor] (on) at (4.6,-1.1) {Option Node};
+    \node[opt] (o1) at (4.6,-1.9) {(flags: SF; msg: ``SYN-FIN Scan'';)};
+    \node[opt,anchor=north west] (o2) at (o1.south west) {(flags: S12; msg: ``Queso Scan'';)};
+    \node[opt,anchor=north west] (o3) at (o2.south west) {(flags: F; msg: ``FIN Scan'';)};
+
+    \coordinate (b) at (1.3,-1.9);
+    \draw[->,line width=1pt,TitleColor] (h1.south) |- (o1.west);
+    \draw[->,line width=1pt,TitleColor] (1.3,-1.9) |- (o2.west);
+    \draw[->,line width=1pt,TitleColor] (1.3,-1.9) |- (o3.west);
+  \end{tikzpicture}
+\end{frame}

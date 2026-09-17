@@ -1,0 +1,22 @@
+% Source PDF page 30
+\begin{frame}[t,allowframebreaks]{Installation}
+  \fontsize{14}{17}\selectfont
+  Run with root privileges (sudo)
+  \begin{itemize}
+    \item Build and install from source code:
+  \end{itemize}
+  Step 8: Setting up username and setting the permissions
+  \CodeBlock{13}{16}{%
+    \$ chown -R snort:snort /etc/snort\par
+    \$ chown -R snort:snort /var/log/snort\par
+    \$ chown -R snort:snort /usr/local/lib/snort\_dynamicrules\par}
+  \vspace{0.08cm}
+  Step 9: Copy the configuration files from the download folder.
+  \CodeBlock{13}{16}{%
+    \$ cd \textasciitilde/snort\_src/snort-2.9.20/etc/\par
+    \$ cp *.conf* /etc/snort\par
+    \$ cp *.map /etc/snort\par
+    \$ cp *.dtd /etc/snort\par
+    \$ cd ../src/dynamic-preprocessors/build/usr/local/lib/snort\_dynamicpreprocessor/\par
+    \$ cp * /usr/local/lib/snort\_dynamicpreprocessor\par}
+\end{frame}

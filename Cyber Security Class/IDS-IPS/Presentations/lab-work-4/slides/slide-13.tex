@@ -1,0 +1,24 @@
+% Source PDF page 13 - Detection Engine: Rules (blue header / yellow options)
+\begin{frame}{Detection Engine: Rules}
+  \centering
+  \fontsize{13}{16}\selectfont
+  \vspace{0.3cm}
+
+  \begin{tabular}{ll}
+    {\color{ResearchColor}\bfseries Rule Header} & {\color{ResearchColor}\bfseries Rule Options}\\[4pt]
+  \end{tabular}
+
+  \vspace{0.2cm}
+  \begin{tikzpicture}[
+    hdr/.style={fill=ResearchColor,text=white,inner xsep=8pt,inner ysep=6pt,
+      font=\ttfamily\fontsize{12}{15}\selectfont,align=left},
+    opt/.style={fill=yellow,text=black,inner xsep=8pt,inner ysep=6pt,
+      font=\ttfamily\fontsize{12}{15}\selectfont,align=left}]
+    \node[hdr] (h1) at (0,0) {Alert tcp 1.1.1.1 any -> 2.2.2.2 any};
+    \node[opt,anchor=west] (o1) at (7.2,0) {(flags: SF; msg: ``SYN-FIN Scan'';)};
+    \node[hdr,anchor=north west] (h2) at (h1.south west) {Alert tcp 1.1.1.1 any -> 2.2.2.2 any};
+    \node[opt,anchor=north west] (o2) at (o1.south west) {(flags: S12; msg: ``Queso Scan'';)};
+    \node[hdr,anchor=north west] (h3) at (h2.south west) {Alert tcp 1.1.1.1 any -> 2.2.2.2 any};
+    \node[opt,anchor=north west] (o3) at (o2.south west) {(flags: F; msg: ``FIN Scan'';)};
+  \end{tikzpicture}
+\end{frame}

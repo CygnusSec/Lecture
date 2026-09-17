@@ -1,0 +1,16 @@
+% Source PDF page 24
+\begin{frame}[t,allowframebreaks]{Snort Rules}
+  \fontsize{13}{16}\selectfont
+  \CodeBlock{12}{15}{%
+    alert tcp \$EXTERNAL\_NET any -> \$HOME\_NET 21 (msg:"FTP vsFTPd 2.3.4 backdoor login attempt"; flow:to\_server,established; content:":)"; content:"USER "; offset:0; depth:5; nocase; classtype:attempted-admin; sid:1000002; rev:1;)}
+  \vspace{0.15cm}
+  \begin{itemize}
+    \item \textcolor{WarningColor}{alert tcp \$EXTERNAL\_NET any -> \$HOME\_NET 21}: Monitors any TCP traffic from external sources to your home network on FTP port 21.
+    \item \textcolor{WarningColor}{msg:"FTP vsFTPd 2.3.4 backdoor login attempt"}: Provides a message for the alert when this rule is triggered.
+    \item \textcolor{WarningColor}{flow:to\_server,established}: Ensures that the rule applies only to traffic going to the server as part of an established connection.
+    \item \textcolor{WarningColor}{content:":)";}: Matches the :) smiley face, which is the trigger for the vsFTPd backdoor.
+    \item \textcolor{WarningColor}{content:"USER "; offset:0; depth:5; nocase;}: Checks that the smiley face is part of the USER command, which is standard in FTP login attempts.
+    \item \textcolor{WarningColor}{classtype:attempted-admin}: Classifies this as an administrative attempt (backdoor access).
+    \item \textcolor{WarningColor}{sid:1000002; rev:1;}: Assigns a unique Snort ID for the rule and sets the revision number.
+  \end{itemize}
+\end{frame}

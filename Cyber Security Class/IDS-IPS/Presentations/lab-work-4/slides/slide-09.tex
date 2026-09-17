@@ -1,0 +1,40 @@
+% Source PDF page 9 - Data Flow diagram (vector recreation)
+\begin{frame}{Data Flow}
+  \centering
+  \begin{tikzpicture}[>=Latex,
+    box/.style={draw=TitleColor,line width=1pt,rounded corners=3pt,fill=white,
+      minimum width=2.7cm,minimum height=1.5cm,align=center,
+      font=\fontsize{12}{14}\selectfont,text=TitleColor},
+    pill/.style={draw=TitleColor,line width=1pt,rounded corners=10pt,fill=white,
+      minimum width=2.7cm,minimum height=1.3cm,align=center,
+      font=\fontsize{11}{13}\selectfont,text=TitleColor},
+    ar/.style={->,line width=1.1pt,TitleColor}]
+
+    \node[box] (sniff) at (0,0) {Sniffer};
+    \node[box] (prep) at (3.4,0) {Preprocessors};
+    \node[box] (det) at (6.8,0) {Detection\\engine};
+    \node[box] (out) at (10.2,0) {Output};
+
+    \draw[ar] (sniff.east) -- (prep.west);
+    \draw[ar] (prep.east) -- (det.west);
+    \draw[ar] (det.east) -- (out.west);
+
+    \node[pill] (pk) at (0,-2.5) {packets};
+    \node[pill] (beh) at (3.4,-2.5) {determine\\packets /\\packet behaviour};
+    \node[pill] (rul) at (6.8,-2.5) {rules};
+    \node[pill] (al) at (10.2,-2.5) {alerts/log};
+
+    \node[pill] (http) at (3.4,-5.0) {HTTP plug-in,\\sfPortscan};
+    \node[pill] (rs) at (6.8,-5.0) {rulesets};
+    \node[pill] (ui) at (10.2,-5.0) {user interface};
+
+    \draw[ar] (pk.north) -- (sniff.south);
+    \draw[ar] (beh.north) -- (prep.south);
+    \draw[ar] (rul.north) -- (det.south);
+    \draw[ar] (out.south) -- (al.north);
+
+    \draw[ar] (http.north) -- (beh.south);
+    \draw[ar] (rs.north) -- (rul.south);
+    \draw[ar] (al.south) -- (ui.north);
+  \end{tikzpicture}
+\end{frame}

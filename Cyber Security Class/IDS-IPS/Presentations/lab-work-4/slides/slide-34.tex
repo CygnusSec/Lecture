@@ -1,0 +1,26 @@
+% Source PDF page 34 - How we use the Snort? (network topology)
+\begin{frame}{How we use the Snort?}
+  \centering
+  \begin{tikzpicture}[>=Latex,font=\fontsize{12}{15}\selectfont,
+    dev/.style={draw=ResearchColor,line width=1pt,rounded corners=3pt,fill=white,
+      minimum width=1.8cm,minimum height=1.1cm,align=center,text=ResearchColor},
+    lbl/.style={font=\fontsize{11}{13}\selectfont,text=SecondaryColor},
+    ln/.style={line width=1.2pt,TitleColor}]
+
+    \node[dev] (ids) at (0,2.6) {IDS};
+    \node[dev] (sw) at (0,0) {Switch};
+    \node[dev] (fw) at (2.8,0) {Firewall};
+    \node[dev] (rt) at (5.6,0) {Router};
+    \node[draw=ResearchColor,line width=1pt,cloud,aspect=2,fill=white,text=ResearchColor,
+      minimum width=2.2cm] (net) at (8.6,0) {Internet};
+    \node[dev] (usr) at (-3.0,0) {Users};
+    \node[dev] (atk) at (8.6,-2.6) {Attacker};
+
+    \draw[ln,->] (sw.north) -- (ids.south);
+    \draw[ln,<->] (usr.east) -- (sw.west);
+    \draw[ln,<->] (sw.east) -- (fw.west);
+    \draw[ln,<->] (fw.east) -- (rt.west);
+    \draw[ln] (rt.east) -- (net.west);
+    \draw[ln,->] (atk.north) -- (net.south);
+  \end{tikzpicture}
+\end{frame}

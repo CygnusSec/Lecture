@@ -1,0 +1,109 @@
+% Standalone Lab Work 4 deck using the shared IDS-IPS theme.
+\documentclass[aspectratio=169,11pt]{beamer}
+\input{../config/packages}
+\usepackage{colortbl}
+\usetikzlibrary{shapes.symbols}
+\newcolumntype{Y}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\makeatletter
+\def\input@path{{../}}
+\makeatother
+\graphicspath{{../}}
+\input{../config/colors}
+\input{../config/theme}
+\input{../config/commands}
+
+\title{Snort}
+\subtitle{Intrusion Detection and Prevention with Snort}
+\author{Tran Dai Duong}
+\institute{Institute of Information Technology\\Vietnam Academy of Science and Technology}
+\date{Lab Work 04}
+
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+    \begin{beamercolorbox}[wd=.84\paperwidth,ht=2.7ex,dp=1.2ex,left]{author in head/foot}
+      \hspace{0.45cm}\color{SecondaryColor}\fontsize{7}{8.5}\selectfont
+      Lab Work 04 -- Snort
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.16\paperwidth,ht=2.7ex,dp=1.2ex,right]{date in head/foot}
+      \color{SecondaryColor}\fontsize{7}{8.5}\selectfont
+      \insertframenumber/\inserttotalframenumber\hspace{0.45cm}
+    \end{beamercolorbox}%
+  }%
+}
+
+\definecolor{CommandGreen}{RGB}{0,175,70}
+\newcommand{\BodyText}[1]{{\fontsize{16}{19.5}\selectfont #1}}
+\newcommand{\CommandText}[1]{{\color{CommandGreen}\ttfamily\fontsize{15}{18}\selectfont\raggedright #1}}
+% Let itemize text inherit the ambient \fontsize set at the top of each frame,
+% so per-slide sizing actually controls list text. The shared config sets a
+% fixed size=\normalsize on these fonts; \setbeamerfont only merges attributes,
+% so we must CLEAR the size with the starred form to make inheritance work.
+\setbeamerfont*{itemize/enumerate body}{}
+\setbeamerfont*{itemize/enumerate subbody}{}
+\setbeamerfont*{itemize/enumerate subsubbody}{}
+
+% Compact list spacing so dense source pages fit on a single slide.
+\setlength{\parskip}{1.5pt}
+\addtolength{\leftmargini}{-0.3em}
+% Tighten space around and between itemize items.
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@listi}{\itemsep\parsep}{\itemsep 1.5pt \parsep 0pt}{}{}
+\patchcmd{\@listii}{\itemsep\parsep}{\itemsep 1pt \parsep 0pt}{}{}
+\makeatother
+\setbeamertemplate{itemize/enumerate body begin}{\vspace{-1.5pt}}
+
+% For frames split by \allowframebreaks: show "(cont)" on continuation pages
+% instead of the default Roman numerals ("I", "II", ...).
+\setbeamertemplate{frametitle continuation}{%
+  \ifnum\insertcontinuationcount>1\relax(cont)\fi}
+
+% Monospace code block for command listings: green, tight leading, wraps long lines.
+% #1 = font size, #2 = leading, #3 = body (blank lines separate paragraphs).
+\newcommand{\CodeBlock}[3]{%
+  \par\nopagebreak
+  \begingroup
+  \color{CommandGreen}\ttfamily\fontsize{#1}{#2}\selectfont
+  \setlength{\parindent}{0pt}\setlength{\parskip}{1pt}%
+  \raggedright #3\par
+  \endgroup}
+
+\begin{document}
+\input{slides/slide-01}
+\input{slides/slide-02}
+\input{slides/slide-03}
+\input{slides/slide-04}
+\input{slides/slide-05}
+\input{slides/slide-06}
+\input{slides/slide-07}
+\input{slides/slide-08}
+\input{slides/slide-09}
+\input{slides/slide-10}
+\input{slides/slide-11}
+\input{slides/slide-12}
+\input{slides/slide-13}
+\input{slides/slide-14}
+\input{slides/slide-15}
+\input{slides/slide-16}
+\input{slides/slide-17}
+\input{slides/slide-18}
+\input{slides/slide-19}
+\input{slides/slide-20}
+\input{slides/slide-21}
+\input{slides/slide-22}
+\input{slides/slide-23}
+\input{slides/slide-24}
+\input{slides/slide-25}
+\input{slides/slide-26}
+\input{slides/slide-27}
+\input{slides/slide-28}
+\input{slides/slide-29}
+\input{slides/slide-30}
+\input{slides/slide-31}
+\input{slides/slide-32}
+\input{slides/slide-33}
+\input{slides/slide-34}
+\input{slides/slide-35}
+\input{slides/slide-36}
+\input{slides/slide-37}
+\end{document}

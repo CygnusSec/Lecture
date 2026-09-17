@@ -1,0 +1,24 @@
+% Source PDF page 28
+\begin{frame}[t,allowframebreaks]{Installation}
+  \fontsize{14}{17}\selectfont
+  Run with root privileges (sudo)
+  \begin{itemize}
+    \item Build and install from source code:
+  \end{itemize}
+  Step 4: Download Snort.
+  \CodeBlock{13}{16}{%
+    \$ wget https://www.snort.org/downloads/snort/snort-2.9.20.tar.gz\par
+    \$ tar -xzvf snort-2.9.20.tar.gz\par
+    \$ cd snort-2.9.20\par
+    \$ ./configure -{}-enable-sourcefire \&\& make \&\& make install\par
+    \$ ldconfig \# update library.\par}
+  \vspace{0.08cm}
+  Step 5: Create Snort directories and directories containing rule sets.
+  \CodeBlock{13}{16}{%
+    \$ mkdir /etc/snort\par
+    \$ mkdir /etc/snort/rules\par
+    \$ mkdir /etc/snort/rules/iplists\par
+    \$ mkdir /etc/snort/preproc\_rules\par
+    \$ mkdir /usr/local/lib/snort\_dynamicrules\par
+    \$ mkdir /etc/snort/so\_rules\par}
+\end{frame}

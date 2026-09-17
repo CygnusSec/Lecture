@@ -1,0 +1,25 @@
+% Source PDF page 32
+\begin{frame}[t]{Installation}
+  \fontsize{14}{17}\selectfont
+  Run with root privileges (sudo)
+  \begin{itemize}
+    \item Build and install from source code:
+  \end{itemize}
+  Last step: Verify and test configuration.
+  \CodeBlock{13}{16}{\$ snort -T -c snort.conf}
+  \vspace{0.1cm}
+  \begin{tikzpicture}
+    \node[draw=SecondaryColor,rounded corners=3pt,inner xsep=9pt,inner ysep=5pt,
+      text width=0.86\paperwidth,align=left,text=ResearchColor,
+      font=\ttfamily\fontsize{10}{12.3}\selectfont]{%
+      Running in Test mode\\[4pt]
+      \hspace{2em}-{}-== Initializing Snort ==-{}-\\
+      Initializing Output Plugins!\\
+      Initializing Preprocessors!\\
+      Initializing Plug-ins!\\
+      ..............\\
+      Total snort Fixed Memory Cost - MaxRss:61384\\
+      Snort successfully validated the configuration!\\
+      Snort exiting};
+  \end{tikzpicture}
+\end{frame}
