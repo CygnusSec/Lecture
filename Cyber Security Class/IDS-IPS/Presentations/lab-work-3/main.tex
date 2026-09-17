@@ -34,10 +34,12 @@
 \newcommand{\BodyText}[1]{{\fontsize{16}{19.5}\selectfont #1}}
 \newcommand{\CommandText}[1]{{\color{CommandGreen}\ttfamily\fontsize{15}{18}\selectfont\raggedright #1}}
 % Let itemize text inherit the ambient \fontsize set at the top of each frame,
-% so per-slide sizing actually controls list text.
-\setbeamerfont{itemize/enumerate body}{}
-\setbeamerfont{itemize/enumerate subbody}{}
-\setbeamerfont{itemize/enumerate subsubbody}{}
+% so per-slide sizing actually controls list text. The shared config pins
+% size=\normalsize; \setbeamerfont only merges, so we must CLEAR it with the
+% starred form for inheritance to work.
+\setbeamerfont*{itemize/enumerate body}{}
+\setbeamerfont*{itemize/enumerate subbody}{}
+\setbeamerfont*{itemize/enumerate subsubbody}{}
 
 % Compact list spacing so dense source pages fit on a single slide.
 \setlength{\parskip}{1.5pt}
