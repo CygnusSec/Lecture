@@ -1,0 +1,17 @@
+% Source PDF page 16 - split at semantic boundaries
+\begin{frame}[t]{Parameters (4/7)}
+\BodyText{\textcolor{CommandGreen}{\texttt{-i}} selects the incoming interface, such as \texttt{eth0} or \texttt{ppp0}.}
+\begin{itemize}
+  \item Filter table: valid with \textcolor{WarningColor}{\bfseries INPUT} and \textcolor{WarningColor}{\bfseries FORWARD}
+  \item NAT/mangle tables: valid with \textcolor{WarningColor}{\bfseries PREROUTING}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Parameters (5/7)}
+\BodyText{Special options supported by \texttt{-i}:}
+\begin{itemize}
+  \item \texttt{!} excludes the specified interface from the match
+  \item \texttt{+} is a wildcard; for example, \texttt{-i eth+} matches Ethernet interfaces but excludes interfaces such as \texttt{ppp0}
+  \item If no interface is specified, every interface is affected
+\end{itemize}
+\end{frame}

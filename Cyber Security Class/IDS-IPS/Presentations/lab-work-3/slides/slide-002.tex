@@ -1,0 +1,13 @@
+% Source PDF page 2
+\begin{frame}[t]{What Is iptables}
+  \fontsize{14}{16}\selectfont
+  \begin{itemize}
+    \item The most popular firewall / \textcolor{CommandGreen}{\bfseries NAT} package running on Linux was ipchains. It had a number of limitations, the primary one being that it ran as a separate program and not as part of the kernel. The \textcolor{CommandGreen}{\bfseries Netfilter} organization decided to create a new product called \textcolor{CommandGreen}{\bfseries iptables} in order to rectify this shortcoming. As a result of this, \textcolor{CommandGreen}{\bfseries iptables} is considered a faster and more secure alternative. \textcolor{CommandGreen}{\bfseries iptables} has now become the default firewall package installed under RedHat and Fedora Linux.
+    \item The Linux kernel has the built-in ability to \textcolor{CommandGreen}{\bfseries filter} packets, allowing some of them into the system while stopping others. The 2.4 kernel's \textcolor{CommandGreen}{\bfseries netfilter} has three built-in tables or rules lists. They are as follows:
+    \begin{itemize}
+      \item \textcolor{CommandGreen}{\bfseries filter} : The default table for handling network packets.
+      \item \textcolor{CommandGreen}{\bfseries nat} : Used to alter packets that create a new connection.
+      \item \textcolor{CommandGreen}{\bfseries mangle} : Used for specific types of packet alteration.
+    \end{itemize}
+  \end{itemize}
+\end{frame}

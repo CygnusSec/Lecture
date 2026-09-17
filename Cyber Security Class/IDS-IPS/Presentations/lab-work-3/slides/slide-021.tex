@@ -1,0 +1,12 @@
+% Source PDF page 21
+\begin{frame}[t]{UDP Protocol match options (-p udp ...)}
+  \fontsize{14}{16}\selectfont
+  \begin{itemize}
+    \item {\ttfamily -{}-sport} : Sets the source port of the packet using the same options as {\ttfamily -{}-dport}.
+    \item {\ttfamily -{}-syn} : Applies to all TCP packets designed to initiate communication, commonly called SYN packets. Any packets that carry a data payload are not touched. Placing an exclamation point character ({\ttfamily !}) as a flag after the {\ttfamily -{}-syn} option causes all non-SYN packets to be matched.
+    \begin{itemize}
+      \item {\ttfamily -{}-dport} --- Specifies the destination port of the UDP packet.
+      \item {\ttfamily -{}-sport} --- Specifies the source port of the UDP packet.
+    \end{itemize}
+  \end{itemize}
+\end{frame}

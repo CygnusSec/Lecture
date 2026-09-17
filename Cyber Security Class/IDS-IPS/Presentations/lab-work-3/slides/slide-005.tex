@@ -1,0 +1,18 @@
+% Source PDF page 5
+\begin{frame}[t]{What Is iptables}
+  \fontsize{14}{16}\selectfont
+  \begin{itemize}
+    \item The built-in chains for the \textcolor{CommandGreen}{\bfseries filter} table are as follows:
+    \begin{itemize}
+      \item \textcolor{WarningColor}{\bfseries INPUT} --- Applies to network packets that are targeted for the host.
+      \item \textcolor{WarningColor}{\bfseries OUTPUT} --- Applies to locally-generated network packets.
+      \item \textcolor{WarningColor}{\bfseries FORWARD} --- Applies to network packets routed through the host.
+    \end{itemize}
+    \item The built-in chains for the \textcolor{CommandGreen}{\bfseries nat} table are as follows:
+    \begin{itemize}
+      \item \textcolor{WarningColor}{\bfseries PREROUTING} --- Alters network packets when they arrive.
+      \item \textcolor{WarningColor}{\bfseries OUTPUT} --- Alters locally-generated network packets before they are sent out.
+      \item \textcolor{WarningColor}{\bfseries POSTROUTING} --- Alters network packets before they are sent out.
+    \end{itemize}
+  \end{itemize}
+\end{frame}

@@ -1,0 +1,16 @@
+% Source PDF page 11
+\begin{frame}[t]{Commands}
+  \fontsize{14}{16}\selectfont
+  \begin{itemize}
+    \item {\ttfamily -A} : Appends the \textcolor{CommandGreen}{\bfseries iptables} rule to the end of the specified chain.
+    \item {\ttfamily -F} : Flushes the selected chain, which effectively deletes every rule in the chain. If no chain is specified, this command flushes every rule from every chain.
+    \item {\ttfamily -L} : Lists all of the rules in the chain specified after the command. To list all rules in all chains in the default \textcolor{CommandGreen}{\bfseries filter} table, do not specify a chain or table. Otherwise, the following syntax should be used to list the rules in a specific chain in a particular table:
+  \end{itemize}
+  {\color{CommandGreen}\ttfamily\fontsize{14}{16}\selectfont \hspace{1.2em}iptables -L <chain-name> -t <table-name>\par}
+  \vspace{0.1cm}
+  \begin{itemize}
+    \item {\ttfamily -N} : Creates a new chain with a user-specified name.
+    \item {\ttfamily -P} : Sets the default policy for a particular chain, so that when packets traverse an entire chain without matching a rule, they will be sent on to a particular target, such as \textcolor{WarningColor}{\bfseries ACCEPT} or \textcolor{WarningColor}{\bfseries DROP}.
+  \end{itemize}
+  {\color{CommandGreen}\ttfamily\fontsize{14}{16}\selectfont \hspace{1.2em}iptables -P INPUT DROP\par}
+\end{frame}

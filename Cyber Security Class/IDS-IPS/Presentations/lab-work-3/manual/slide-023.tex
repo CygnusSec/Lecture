@@ -1,0 +1,13 @@
+% Source PDF page 23 - reconstructed table
+\begin{frame}{Common Extended Match Criteria}
+\centering\fontsize{11}{13}\selectfont
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|Y{4.9cm}|Y{7.6cm}|}\hline
+\rowcolor{MethodColor!80}\color{white}\bfseries Switch&\color{white}\bfseries Description\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -m multiport --port <p1,p2>}&Matches multiple TCP/UDP source ports separated by commas.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -m multiport --dport <p1,p2>}&Matches multiple destination ports separated by commas.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -m multiport --ports <p1,p2>}&Matches multiple ports, assuming source and destination ports are the same.\\\hline
+\end{tabular}
+\vspace{0.25cm}
+{\color{CommandGreen}\ttfamily\fontsize{10.5}{12.5}\selectfont iptables -A FORWARD -s 0/0 -i eth0 -d 192.168.1.58 -o eth1 -p tcp --sport 1024:65535 -m multiport --dport 80,443 -j ACCEPT\par}
+\end{frame}

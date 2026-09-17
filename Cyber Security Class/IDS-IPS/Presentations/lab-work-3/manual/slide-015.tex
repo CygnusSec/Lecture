@@ -1,0 +1,26 @@
+% Source PDF page 15 - split at semantic boundaries
+\begin{frame}[t]{Parameters (1/7)}
+\BodyText{\textcolor{CommandGreen}{\texttt{-d}} sets the destination hostname, IP address, or network that a packet must match.}
+\vspace{0.2cm}
+\BodyText{Supported network formats:}
+\begin{itemize}
+  \item \texttt{N.N.N.N/M.M.M.M}: IP range plus dotted-decimal netmask
+  \item \texttt{N.N.N.N/M}: IP range plus prefix length
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Parameters (2/7)}
+\begin{itemize}
+  \item \textcolor{CommandGreen}{\texttt{-s}} sets the packet source using the same address syntax as \texttt{-d}.
+  \item \textcolor{CommandGreen}{\texttt{-f}} matches fragmented packets. Add \texttt{!} after this parameter to match only unfragmented packets.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Parameters (3/7)}
+\BodyText{\textcolor{CommandGreen}{\texttt{-p}} selects the IP protocol for the rule.}
+\begin{itemize}
+  \item Common values: \texttt{icmp}, \texttt{tcp}, \texttt{udp}, and \texttt{all}
+  \item Protocols listed in \texttt{/etc/protocols} may also be used
+  \item If omitted, the default is \texttt{all}
+\end{itemize}
+\end{frame}

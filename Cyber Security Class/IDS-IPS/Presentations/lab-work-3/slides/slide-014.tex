@@ -1,0 +1,15 @@
+% Source PDF page 14 - reconstructed table
+\begin{frame}{General Iptables Match Criteria}
+\centering\fontsize{10.4}{12.6}\selectfont
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{|Y{4.6cm}|Y{8.4cm}|}\hline
+\rowcolor{MethodColor!80}\color{white}\bfseries Iptables command&\color{white}\bfseries Description\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -t <table>}&If you don't specify a table, then the filter table is assumed. As discussed before, the possible built-in tables include: filter, nat, mangle\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -j <target>}&Jump to the specified target chain when the packet matches the current rule.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -p <protocol-type>}&Match protocol. Types include, icmp, tcp, udp, and all\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -s <ip-address>}&Match source IP address\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -d <ip-address>}&Match destination IP address\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -i <interface-name>}&Match "input" interface on which the packet enters.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -o <interface-name>}&Match "output" interface on which the packet exits\\\hline
+\end{tabular}
+\end{frame}

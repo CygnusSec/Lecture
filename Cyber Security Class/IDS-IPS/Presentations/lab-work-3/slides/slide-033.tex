@@ -1,0 +1,18 @@
+% Source PDF page 33
+\begin{frame}[t]{Example of Masquerading}
+  \CodeBlock{9.5}{11.6}{%
+    \# Load the NAT module\par
+    modprobe iptable\_nat\par
+    \# Enable routing by modifying the ip\_forward\par
+    \# - Interface eth0 is the internet interface\par
+    \# - Interface eth1 is the private network interface\par
+    echo 1 > /proc/sys/net/ipv4/ip\_forward\par
+    iptables -A POSTROUTING -t nat -o eth0 -s \textbackslash{} 192.168.1.0/24 -d 0/0 -j MASQUERADE\par
+    \vspace{0.12cm}
+    \# Prior to masquerading, the packets are routed via the filter\par
+    \# table's FORWARD chain.\par
+    \# Allowed outbound: New, established and related connections\par
+    \# Allowed inbound : Established and related connections\par
+    iptables -A FORWARD -t filter -i eth1 -m state \textbackslash{} -{}-state NEW,ESTABLISHED,RELATED -j ACCEPT\par
+    iptables -A FORWARD -t filter -i eth0 -m state \textbackslash{} -{}-state ESTABLISHED,RELATED -j ACCEPT\par}
+\end{frame}

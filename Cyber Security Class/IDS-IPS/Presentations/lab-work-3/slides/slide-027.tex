@@ -1,0 +1,14 @@
+% Source PDF page 27
+\begin{frame}[t]{Example: Allowing DNS Access To Firewall}
+  \CodeBlock{12.5}{14.5}{%
+    \#------------------------------------------------------\par
+    \# Allow outbound DNS queries from the FW and the replies too\par
+    \# Interface eth0 is the internet interface\par
+    \# Zone transfers use TCP and not UDP. Most home networks\par
+    \# websites using a single DNS server won't require TCP statements\par
+    \#------------------------------------------------------\par
+    \vspace{0.18cm}
+    iptables -A OUTPUT -p udp -o eth0 -{}-dport 53 -{}-sport 1024:65535 -j ACCEPT\par
+    \vspace{0.12cm}
+    iptables -A INPUT -p udp -i eth0 -{}-sport 53 -{}-dport 1024:65535 -j ACCEPT\par}
+\end{frame}

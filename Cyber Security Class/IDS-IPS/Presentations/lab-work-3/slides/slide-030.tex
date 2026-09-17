@@ -1,0 +1,30 @@
+% Source PDF page 30
+\begin{frame}[t]{IPTABLES Summary}
+  \fontsize{10}{12}\selectfont
+  \begin{itemize}
+    \item {\color{WarningColor}Flush the rules from a chain:}
+  \end{itemize}
+  \CodeBlock{10}{12.5}{%
+    \hspace{1.2em}\# iptables -F INPUT\par
+    \hspace{1.2em}\# iptables -F OUTPUT\par
+    \hspace{1.2em}\# iptables -F FORWARD\par}
+  \begin{itemize}
+    \item {\color{WarningColor}Setting a Default Policy (-P or -{}-policy)}
+  \end{itemize}
+  \CodeBlock{10}{12.5}{%
+    \hspace{1.2em}\# iptables -P INPUT DROP\par
+    \hspace{1.2em}\# iptables -P OUTPUT DROP\par
+    \hspace{1.2em}\# iptables -P FORWARD DROP\par}
+  \begin{itemize}
+    \item {\color{WarningColor}Creating Firewall Rules}
+  \end{itemize}
+  \CodeBlock{10}{12.5}{%
+    \hspace{1.2em}\# iptables -{}-append CHAIN selection-criteria -{}-jump \{DROP|ACCEPT|REJECT\}\par
+    \hspace{1.2em}\# iptables -A CHAIN selection-criteria -j \{DROP|ACCEPT|REJECT\}\par}
+  \begin{itemize}
+    \item {\color{WarningColor}Opening and Closing Specific Ports}
+  \end{itemize}
+  \CodeBlock{10}{12.5}{%
+    \hspace{1.2em}\# iptables -A INPUT -p tcp -{}-dport 25 -j ACCEPT\par
+    \hspace{1.2em}\# iptables -A OUTPUT -p tcp -{}-sport 25 -j ACCEPT\par}
+\end{frame}

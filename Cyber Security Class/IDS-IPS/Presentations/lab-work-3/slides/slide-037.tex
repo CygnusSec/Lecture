@@ -1,0 +1,13 @@
+% Source PDF page 37
+\begin{frame}[t]{Example of port forwarding}
+  \CodeBlock{12.5}{14.5}{%
+    \# After DNAT, the packets are routed via the filter's FORWARD chain.\par
+    \# Connections on port 80 to the target machine on the private network\par
+    \# must be allowed.\par
+    \vspace{0.15cm}
+    - iptables -A FORWARD -p tcp -i eth0 -o eth1 -d \textbackslash{} 192.168.1.200 -{}-dport 8080 -{}-sport 1024:65535 -m \textbackslash{} state -{}-state NEW -j ACCEPT\par
+    \vspace{0.1cm}
+    - iptables -A FORWARD -t filter -i eth1 -m state \textbackslash{} -{}-state NEW,ESTABLISHED,RELATED -j ACCEPT\par
+    \vspace{0.1cm}
+    - iptables -A FORWARD -t filter -i eth0 -m state \textbackslash{} -{}-state ESTABLISHED,RELATED -j ACCEPT\par}
+\end{frame}

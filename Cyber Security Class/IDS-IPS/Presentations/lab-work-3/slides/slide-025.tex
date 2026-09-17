@@ -1,0 +1,19 @@
+% Source PDF page 25
+\begin{frame}[t,allowframebreaks]{Modules with Additional Match Options}
+  \fontsize{13}{15.5}\selectfont
+  \begin{itemize}
+    \item To use a match option module, load the module by name using the {\ttfamily -m} option, such as {\ttfamily -m <module-name>} (replacing {\ttfamily <module-name>} with the name of the module).
+    \item state module: The state module ({\ttfamily -m state -{}-state} ...) match a packet with the following connection states:
+    \begin{itemize}
+      \item \textcolor{WarningColor}{\bfseries ESTABLISHED} --- The packet is associated with other packets in an established connection.
+      \item \textcolor{WarningColor}{\bfseries INVALID} --- The packet can't be matched to a known connection, and thus may be forged.
+      \item \textcolor{WarningColor}{\bfseries NEW} --- The packet is trying to establish a new connection.
+      \item \textcolor{WarningColor}{\bfseries RELATED} --- The packet is not part of an existing connection, but it's related, such as an ICMP error packet.
+    \end{itemize}
+    These connection states can be used in combination with one another by separating them with commas, such as {\ttfamily -m state -{}-state} \textcolor{WarningColor}{\bfseries INVALID},\textcolor{WarningColor}{\bfseries NEW}.
+    \item mac module --- ({\ttfamily -m mac} ...) Enables hardware MAC address matching with the following option:
+    \begin{itemize}
+      \item {\ttfamily -{}-mac-source} --- Matches a MAC address of the network interface card that sent the packet. To exclude a MAC address from a rule, place an exclamation point ({\ttfamily !}) after the {\ttfamily -{}-mac-source} match option.
+    \end{itemize}
+  \end{itemize}
+\end{frame}

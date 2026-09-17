@@ -1,0 +1,11 @@
+% Source PDF page 13 - reconstructed table
+\begin{frame}{The Most Commonly Used Targets}
+\centering\fontsize{10}{12}\selectfont
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|Y{2.25cm}|Y{4.85cm}|Y{5.3cm}|}\hline
+\rowcolor{MethodColor!80}\color{white}\bfseries Target&\color{white}\bfseries Description&\color{white}\bfseries Common Options\\\hline
+\textcolor{WarningColor}{\bfseries DNAT}&Rewrites the destination IP address of the packet.&\texttt{--to-destination <ip-address>}\\\hline
+\textcolor{WarningColor}{\bfseries SNAT}&Rewrites the source IP address using an address selected by the user.&\texttt{--to-source <address>}\newline\texttt{[-<address>][:<port>-<port>]}\\\hline
+\textcolor{WarningColor}{\bfseries MASQUERADE}&Source NAT using the firewall interface address by default.&\texttt{--to-ports <port>[-<port>]} maps the original source port into a range.\\\hline
+\end{tabular}
+\end{frame}

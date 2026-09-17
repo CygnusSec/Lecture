@@ -1,0 +1,13 @@
+% Source PDF page 14 - reconstructed table
+\begin{frame}{General iptables Match Criteria}
+\centering\fontsize{11.5}{13.5}\selectfont
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{|Y{4.0cm}|Y{8.7cm}|}\hline
+\rowcolor{MethodColor!80}\color{white}\bfseries iptables Option&\color{white}\bfseries Description\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -t <table>}&Selects a table; the default is \texttt{filter}. Built-in tables include \texttt{filter}, \texttt{nat}, and \texttt{mangle}.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -j <target>}&Jumps to the specified target when a packet matches.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -p <protocol>}&Matches \texttt{icmp}, \texttt{tcp}, \texttt{udp}, or \texttt{all}.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -s / -d <address>}&Matches source or destination IP address.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -i / -o <interface>}&Matches the input or output interface.\\\hline
+\end{tabular}
+\end{frame}

@@ -1,0 +1,15 @@
+% Source PDF page 22
+\begin{frame}[t]{ICMP Protocol match options (-p icmp )}
+  \fontsize{14}{16}\selectfont
+  \begin{itemize}
+    \item These match options are available for the Internet Control Message Protocol (ICMP) ({\ttfamily -p icmp}):
+    \item {\ttfamily -{}-icmp-type <type>} : Sets the name or number of the ICMP type to match with the rule
+  \end{itemize}
+  \CodeBlock{14}{16}{%
+    \hspace{1.2em}iptables -A OUTPUT -p icmp -{}-icmp-type echo-request -j ACCEPT\par
+    \hspace{1.2em}iptables -A INPUT -p icmp -{}-icmp-type echo-reply -j ACCEPT\par}
+  \vspace{0.12cm}
+  \begin{itemize}
+    \item In this example \textcolor{CommandGreen}{\bfseries iptables} is being configured to allow the firewall send ICMP echo-requests (pings) and in turn, accept the expected ICMP echo-replies.
+  \end{itemize}
+\end{frame}

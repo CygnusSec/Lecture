@@ -1,0 +1,26 @@
+% Source PDF page 31
+\begin{frame}[t]{IPTABLES Summary}
+  \fontsize{11.5}{13.5}\selectfont
+  \begin{itemize}
+    \item {\color{WarningColor}Using Source and Destination IP Addresses}
+  \end{itemize}
+  \CodeBlock{11.5}{13.5}{%
+    \hspace{1.2em}\# iptables -A INPUT -s 172.24.0.0/16 -j DROP\par
+    \hspace{1.2em}\# iptables -A OUTPUT -d 172.24.0.0/16 -j DROP\par}
+  \begin{itemize}
+    \item {\color{WarningColor}Filtering by Interface}
+  \end{itemize}
+  \CodeBlock{11.5}{13.5}{%
+    \hspace{1.2em}\# iptables -A INPUT -s 192.168.9.0/24 -i eth0 -j DROP\par
+    \hspace{1.2em}\# iptables -A FORWARD -s 192.168.9.0/24 -i eth0 -j DROP\par
+    \hspace{1.2em}\# iptables -A FORWARD -s !192.168.9.0/24 -i eth1 -j DROP\par
+    \hspace{1.2em}\# iptables -A OUTPUT -s !192.168.9.0/24 -i eth1 -j DROP\par}
+  \begin{itemize}
+    \item {\color{WarningColor}Performing Stateful Inspection}
+  \end{itemize}
+  \CodeBlock{11.5}{13.5}{%
+    \hspace{1.2em}\# iptables -A INPUT -m state -p tcp -{}-dport 80 \textbackslash{}\par
+    \hspace{2.4em}-{}-state NEW,ESTABLISHED,RELATED -j ACCEPT\par
+    \hspace{1.2em}\# iptables -A OUTPUT -m state -p tcp -{}-sport 80 \textbackslash{}\par
+    \hspace{2.4em}-{}-state ESTABLISHED,RELATED -j ACCEPT\par}
+\end{frame}

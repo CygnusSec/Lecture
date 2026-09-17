@@ -1,0 +1,12 @@
+% Source PDF page 3 - reconstructed table
+\begin{frame}{Packets Processing By The Firewall}
+\centering\fontsize{10.7}{13}\selectfont
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{|Y{1.7cm}|Y{2.2cm}|Y{2.7cm}|Y{5.7cm}|}\hline
+\rowcolor{MethodColor!80}\color{white}\bfseries Queue Type&\color{white}\bfseries Queue Function&\color{white}\bfseries Chain in Queue&\color{white}\bfseries Chain Function\\\hline
+\textcolor{CommandGreen}{\bfseries Filter}&Packet filtering&\textcolor{WarningColor}{\bfseries FORWARD}&Filters packets to servers accessible by another NIC on the firewall.\\\cline{3-4}
+&&\textcolor{WarningColor}{\bfseries INPUT}&Filters packets destined to the firewall.\\\cline{3-4}
+&&\textcolor{WarningColor}{\bfseries OUTPUT}&Filters packets originating from the firewall\\\hline
+\textcolor{CommandGreen}{\bfseries Mangle}&TCP header modification&\textcolor{WarningColor}{\bfseries PREROUTING POSTROUTING OUTPUT INPUT FORWARD}&Modification of the TCP packet quality of service bits before routing occurs (Rarely used in SOHO environments)\\\hline
+\end{tabular}
+\end{frame}

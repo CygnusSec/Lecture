@@ -1,0 +1,18 @@
+% Source PDF page 17 - split at semantic boundaries
+\begin{frame}[t]{Parameters (6/7)}
+\BodyText{\textcolor{CommandGreen}{\texttt{-j}} tells iptables which target to use when a packet matches.}
+\begin{itemize}
+  \item Common targets: \textcolor{WarningColor}{\bfseries ACCEPT}, \textcolor{WarningColor}{\bfseries DROP}, \textcolor{WarningColor}{\bfseries LOG}, and \textcolor{WarningColor}{\bfseries REJECT}
+  \item A rule may jump to a user-defined chain so additional rules can be applied
+  \item Without a target, processing continues and the rule counter still increases
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Parameters (7/7)}
+\BodyText{\textcolor{CommandGreen}{\texttt{-o}} selects the outgoing interface.}
+\begin{itemize}
+  \item Filter table: valid with \textcolor{WarningColor}{\bfseries OUTPUT} and \textcolor{WarningColor}{\bfseries FORWARD}
+  \item NAT/mangle tables: valid with \textcolor{WarningColor}{\bfseries POSTROUTING}
+  \item Supports the same special options as \texttt{-i}
+\end{itemize}
+\end{frame}

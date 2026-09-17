@@ -1,0 +1,15 @@
+% Source PDF page 24 - reconstructed table
+\begin{frame}{Common Extended Match Criteria}
+\centering\fontsize{11.5}{13.5}\selectfont
+\renewcommand{\arraystretch}{1.28}
+\begin{tabular}{|Y{3.5cm}|Y{9cm}|}\hline
+\rowcolor{MethodColor!80}\color{white}\bfseries Switch&\color{white}\bfseries Connection States\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -m state --state <state>}&
+\textcolor{WarningColor}{\bfseries ESTABLISHED}: packets in an existing bidirectional connection.\newline
+\textcolor{WarningColor}{\bfseries NEW}: starts a new connection.\newline
+\textcolor{WarningColor}{\bfseries RELATED}: starts a secondary connection, such as FTP data or an ICMP error.\newline
+\textcolor{WarningColor}{\bfseries INVALID}: cannot be associated with a known flow.\\\hline
+\end{tabular}
+\vspace{0.25cm}
+{\color{CommandGreen}\ttfamily\fontsize{10.5}{12.5}\selectfont iptables -A FORWARD -d 0/0 -o eth0 -s 192.168.1.58 -i eth1 -p tcp -m state --state ESTABLISHED -j ACCEPT\par}
+\end{frame}

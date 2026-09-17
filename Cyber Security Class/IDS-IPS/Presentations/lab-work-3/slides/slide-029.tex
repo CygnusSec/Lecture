@@ -1,0 +1,14 @@
+% Source PDF page 29
+\begin{frame}[t]{Allowing Firewall To Access The Internet}
+  \CodeBlock{11.5}{14}{%
+    \# Allow port 80 (www) and 443 (https) connections from the firewall\par
+    iptables -A OUTPUT -j ACCEPT -m state -{}-state NEW,ESTABLISHED,RELATED -o eth0 -p tcp -m multiport -{}-dport 80,443 -m multiport -{}-sport 1024:65535\par
+    \vspace{0.15cm}
+    \# Allow previously established connections\par
+    \# - Interface eth0 is the internet interface\par
+    iptables -A INPUT -j ACCEPT -m state -{}-state ESTABLISHED,RELATED -i eth0 -p tcp\par}
+  \vspace{0.2cm}
+  {\fontsize{12}{15}\selectfont If you want all TCP traffic originating from the firewall to be accepted, then remove the line:\par}
+  \vspace{0.08cm}
+  \CodeBlock{11.5}{14}{-m multiport -{}-dport 80,443 -m multiport -{}-sport 1024:65535}
+\end{frame}

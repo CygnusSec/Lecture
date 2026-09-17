@@ -1,0 +1,16 @@
+% Source PDF page 24 - reconstructed table
+\begin{frame}{Common Extended Match Criteria}
+\centering\fontsize{11}{13.3}\selectfont
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{|Y{3.4cm}|Y{9.6cm}|}\hline
+\rowcolor{MethodColor!80}\color{white}\bfseries Switch&\color{white}\bfseries Description\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -m -{}-state <state>}&
+The most frequently tested states are:\newline
+\textcolor{WarningColor}{\bfseries ESTABLISHED}: The packet is part of a connection that has seen packets in both directions\newline
+\textcolor{WarningColor}{\bfseries NEW}: The packet is the start of a new connection\newline
+\textcolor{WarningColor}{\bfseries RELATED}: The packet is starting a new secondary connection. This is a common feature of such protocols such as an FTP data transfer, or an ICMP error.\newline
+\textcolor{WarningColor}{\bfseries INVALID}: The packet couldn't be identified. Could be due to insufficient system resources, or ICMP errors that don't match an existing data flow.\\\hline
+\end{tabular}
+\vspace{0.25cm}
+{\color{WarningColor}\ttfamily\fontsize{12}{15}\selectfont iptables -A FORWARD -d 0/0 -o eth0 -s 192.168.1.58 -i eth1 -p TCP -m state -{}-state ESTABLISHED -j ACCEPT\par}
+\end{frame}
