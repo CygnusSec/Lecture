@@ -1,0 +1,47 @@
+% Standalone Lab Report deck using the shared IDS-IPS theme.
+\documentclass[aspectratio=169,11pt]{beamer}
+\input{../config/packages}
+\makeatletter
+\def\input@path{{../}}
+\makeatother
+\graphicspath{{../}}
+\input{../config/colors}
+\input{../config/theme}
+\input{../config/commands}
+
+\title{Vulnerability Analysis Report}
+\subtitle{Integrating Lab Work 01--04}
+\author{Tran Dai Duong}
+\institute{Institute of Information Technology\\Vietnam Academy of Science and Technology}
+\date{}
+
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+    \begin{beamercolorbox}[wd=.84\paperwidth,ht=2.7ex,dp=1.2ex,left]{author in head/foot}
+      \hspace{0.45cm}\color{SecondaryColor}\fontsize{7}{8.5}\selectfont
+      Lab Report -- Vulnerability Analysis
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.16\paperwidth,ht=2.7ex,dp=1.2ex,right]{date in head/foot}
+      \color{SecondaryColor}\fontsize{7}{8.5}\selectfont
+      \insertframenumber/\inserttotalframenumber\hspace{0.45cm}
+    \end{beamercolorbox}%
+  }%
+}
+
+\definecolor{CommandGreen}{RGB}{0,175,70}
+\newcommand{\BodyText}[1]{{\fontsize{16}{19.5}\selectfont #1}}
+\newcommand{\Tool}[1]{\textcolor{CommandGreen}{\bfseries #1}}
+\newcommand{\Emphasis}[1]{\textcolor{WarningColor}{\bfseries #1}}
+\setbeamerfont{itemize/enumerate body}{size=\fontsize{16}{19.5}\selectfont}
+\setbeamerfont{itemize/enumerate subbody}{size=\fontsize{14.5}{17.5}\selectfont}
+
+\begin{document}
+\input{slides/slide-001}
+\input{slides/slide-002}
+\input{slides/slide-003}
+\input{slides/slide-004}
+\input{slides/slide-005}
+\input{slides/slide-006}
+\input{slides/slide-007}
+\input{slides/slide-008}
+\end{document}
