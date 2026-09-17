@@ -1,12 +1,20 @@
 % Source PDF page 21
-\begin{frame}[t]{UDP Protocol match options (-p udp ...)}
-  \fontsize{14}{16}\selectfont
+\begin{frame}[t,allowframebreaks]{UDP Protocol match options (-p udp ...)}
+  \fontsize{15}{18}\selectfont
   \begin{itemize}
-    \item {\ttfamily -{}-sport} : Sets the source port of the packet using the same options as {\ttfamily -{}-dport}.
-    \item {\ttfamily -{}-syn} : Applies to all TCP packets designed to initiate communication, commonly called SYN packets. Any packets that carry a data payload are not touched. Placing an exclamation point character ({\ttfamily !}) as a flag after the {\ttfamily -{}-syn} option causes all non-SYN packets to be matched.
-    \begin{itemize}
-      \item {\ttfamily -{}-dport} --- Specifies the destination port of the UDP packet.
-      \item {\ttfamily -{}-sport} --- Specifies the source port of the UDP packet.
-    \end{itemize}
+    \item --sport : Sets the source port of the packet using
   \end{itemize}
+  the same options as --dport.\par
+  \begin{itemize}
+    \item --syn : Applies to all TCP packets designed to
+  \end{itemize}
+  initiate communication, commonly called SYN packets. Any packets that carry a data payload are not touched. Placing an exclamation point character (!) as a flag after the --syn option causes all non-SYN packets to be matched.\par
+  \begin{itemize}
+    \item --dport -Specifies the destination port of the
+  \end{itemize}
+  UDP packet.\par
+  \begin{itemize}
+    \item --sport - Specifies the source port of the UDP
+  \end{itemize}
+  packet.\par
 \end{frame}

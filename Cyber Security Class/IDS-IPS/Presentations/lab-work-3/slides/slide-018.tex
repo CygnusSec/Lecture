@@ -1,11 +1,11 @@
 % Source PDF page 18 - reconstructed table
 \begin{frame}{Common TCP Match Criteria}
-\centering\fontsize{12.5}{15}\selectfont
-\renewcommand{\arraystretch}{1.18}
-\begin{tabular}{|Y{4.8cm}|Y{8.2cm}|}\hline
+\centering\fontsize{12}{14}\selectfont
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{|Y{4.8cm}|Y{7.7cm}|}\hline
 \rowcolor{MethodColor!80}\color{white}\bfseries Switch&\color{white}\bfseries Description\\\hline
-\textcolor{CommandGreen}{\ttfamily\bfseries -p tcp -{}-sport <port>}&TCP source port\newline Can be a single value or a range in the format:\newline start-port-number:end-port-number\\\hline
-\textcolor{CommandGreen}{\ttfamily\bfseries -p tcp -{}-dport <port>}&TCP destination port\newline Can be a single value or a range in the format:\newline starting-port:ending-port\\\hline
-\textcolor{CommandGreen}{\ttfamily\bfseries -p tcp -{}-syn}&Used to identify a new TCP connection request\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -p tcp --sport <port>}&TCP source port; accepts one value or a range \texttt{start:end}.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -p tcp --dport <port>}&TCP destination port; accepts one value or a range \texttt{start:end}.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -p tcp --syn}&Matches a new TCP connection request.\\\hline
 \end{tabular}
 \end{frame}

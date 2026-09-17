@@ -1,21 +1,22 @@
 % Source PDF page 7
-\begin{frame}[t]{Download -- install -- start the iptables}
-  \fontsize{14}{16}\selectfont
+\begin{frame}[t,allowframebreaks]{Download -install - start the iptables}
+  \fontsize{15}{18}\selectfont
   \begin{itemize}
     \item Update Packages
   \end{itemize}
-  {\color{CommandGreen}\ttfamily\fontsize{14}{16}\selectfont sudo apt update\par}
-  \vspace{0.18cm}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont sudo apt update\par}
   \begin{itemize}
     \item Install \textcolor{CommandGreen}{\bfseries iptables} and persistence helper
   \end{itemize}
-  {\color{CommandGreen}\ttfamily\fontsize{14}{16}\selectfont sudo apt install -y iptables iptables-persistent\par}
-  \vspace{0.06cm}
-  {\itshape iptables-persistent helps keep your rules after reboot.\par}
-  \vspace{0.18cm}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont sudo apt install -y iptables iptables-persistent\par}
+  \textcolor{CommandGreen}{\bfseries iptables}-persistent helps keep your rules after reboot.\par
   \begin{itemize}
     \item Verify Installation
   \end{itemize}
-  {\color{CommandGreen}\ttfamily\fontsize{14}{16}\selectfont iptables -{}-version\par}
-  {\color{CommandGreen}\ttfamily\fontsize{14}{16}\selectfont ip6tables -{}-version\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables --version\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont ip6tables -version\par}
 \end{frame}

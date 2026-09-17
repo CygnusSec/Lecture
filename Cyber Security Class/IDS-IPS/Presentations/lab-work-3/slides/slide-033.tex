@@ -1,18 +1,34 @@
 % Source PDF page 33
-\begin{frame}[t]{Example of Masquerading}
-  \CodeBlock{9.5}{11.6}{%
-    \# Load the NAT module\par
-    modprobe iptable\_nat\par
-    \# Enable routing by modifying the ip\_forward\par
-    \# - Interface eth0 is the internet interface\par
-    \# - Interface eth1 is the private network interface\par
-    echo 1 > /proc/sys/net/ipv4/ip\_forward\par
-    iptables -A POSTROUTING -t nat -o eth0 -s \textbackslash{} 192.168.1.0/24 -d 0/0 -j MASQUERADE\par
-    \vspace{0.12cm}
-    \# Prior to masquerading, the packets are routed via the filter\par
-    \# table's FORWARD chain.\par
-    \# Allowed outbound: New, established and related connections\par
-    \# Allowed inbound : Established and related connections\par
-    iptables -A FORWARD -t filter -i eth1 -m state \textbackslash{} -{}-state NEW,ESTABLISHED,RELATED -j ACCEPT\par
-    iptables -A FORWARD -t filter -i eth0 -m state \textbackslash{} -{}-state ESTABLISHED,RELATED -j ACCEPT\par}
+\begin{frame}[t,allowframebreaks]{Example of Masquerading}
+  \fontsize{15}{18}\selectfont
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Load the NAT module\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont modprobe iptable\_nat\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Enable routing by modifying the ip\_forward\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# - Interface eth0 is the internet interface\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# - Interface eth1 is the private network interface\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont echo 1 > /proc/sys/net/ipv4/ip\_forward\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A POSTROUTING -t nat-o eth0 -s \textbackslash{} 192.168.1.0/24 -d\par}
+  0/0 -j \textcolor{WarningColor}{\bfseries MASQUERADE}\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Prior to masquerading, the packets are routed via the filter\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# table's FORWARD chain.\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Allowed outbound: New, established and related\par}
+  connections\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Allowed inbound : Established and related connections\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A FORWARD -t filter -i eth1 -m state \textbackslash{}\par}
+  - - state \textcolor{WarningColor}{\bfseries NEW},\textcolor{WarningColor}{\bfseries ESTABLISHED},\textcolor{WarningColor}{\bfseries RELATED} -j \textcolor{WarningColor}{\bfseries ACCEPT}\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A FORWARD -t filter -i eth0 -m state \textbackslash{}\par}
+  - state \textcolor{WarningColor}{\bfseries ESTABLISHED},\textcolor{WarningColor}{\bfseries RELATED} -j \textcolor{WarningColor}{\bfseries ACCEPT}\par
 \end{frame}

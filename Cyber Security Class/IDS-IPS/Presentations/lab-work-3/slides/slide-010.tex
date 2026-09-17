@@ -1,19 +1,24 @@
 % Source PDF page 10
-\begin{frame}[t]{Structure}
-  \fontsize{12.5}{14.5}\selectfont
+\begin{frame}[t,allowframebreaks]{Structure}
+  \fontsize{15}{18}\selectfont
   \begin{itemize}
     \item Many \textcolor{CommandGreen}{\bfseries iptables} commands have the following structure:
   \end{itemize}
-  {\color{CommandGreen}\ttfamily\fontsize{12.5}{14.5}\selectfont \#iptables [-t <table-name>]\par}
-  {\color{CommandGreen}\ttfamily\fontsize{12.5}{14.5}\selectfont \hspace{1.2em}<command> <chain-name>\par}
-  {\color{CommandGreen}\ttfamily\fontsize{12.5}{14.5}\selectfont \hspace{1.2em}<parameter-1> <option-1>\par}
-  {\color{CommandGreen}\ttfamily\fontsize{12.5}{14.5}\selectfont \hspace{1.2em}<parameter-n> <option-n>\par}
-  \vspace{0.12cm}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \#iptables [-t <table-name>]\par}
+  <command><chain-name> <parameter-1> <option-1> <parameter-n><option-n>\par
   \begin{itemize}
-    \item {\ttfamily <table-name>} : allows the user to select a table other than the default \textcolor{CommandGreen}{\bfseries filter} table to use with the command.
-    \item {\ttfamily <command>} : dictates a specific action to perform, such as appending or deleting the rule specified by the {\ttfamily <chain-name>} option.
-    \item {\ttfamily <chain-name>} : are pairs of parameters and options that define what will happen when a packet matches the rule
+    \item <table-name> : allows the user to select a table other than
   \end{itemize}
-  \vspace{0.1cm}
-  {\color{CommandGreen}\ttfamily\fontsize{12.5}{14.5}\selectfont iptables -A INPUT -s 0/0 -i eth0 -d 192.168.1.1 -p TCP -j ACCEPT\par}
+  the default \textcolor{CommandGreen}{\bfseries filter} table to use with the command.\par
+  \begin{itemize}
+    \item <command> : dictates a specific action to perform, such
+  \end{itemize}
+  as appending or deleting the rule specified by the <chain- name> option.\par
+  \begin{itemize}
+    \item <chain-name> :are pairs of parameters and options that
+  \end{itemize}
+  define what will happen when a packet matches the rule\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A INPUT -s 0/0 -i eth0 -d 192.168.1.1 -p TCP -j ACCEPT\par}
 \end{frame}

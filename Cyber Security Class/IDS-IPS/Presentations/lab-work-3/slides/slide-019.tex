@@ -1,12 +1,12 @@
 % Source PDF page 19 - reconstructed table
 \begin{frame}{Common UDP Match Criteria}
-\centering\fontsize{12.5}{15}\selectfont
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{|Y{4.8cm}|Y{8.2cm}|}\hline
+\centering\fontsize{12}{14}\selectfont
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|Y{4.8cm}|Y{7.7cm}|}\hline
 \rowcolor{MethodColor!80}\color{white}\bfseries Switch&\color{white}\bfseries Description\\\hline
-\textcolor{CommandGreen}{\ttfamily\bfseries -p udp -{}-sport <port>}&UDP source port\newline Can be a single value or a range in the format:\newline starting-port:ending-port\\\hline
-\textcolor{CommandGreen}{\ttfamily\bfseries -p udp -{}-dport <port>}&UDP destination port\newline Can be a single value or a range in the format:\newline starting-port:ending-port\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -p udp --sport <port>}&UDP source port; accepts one value or a range \texttt{start:end}.\\\hline
+\textcolor{CommandGreen}{\ttfamily\bfseries -p udp --dport <port>}&UDP destination port; accepts one value or a range \texttt{start:end}.\\\hline
 \end{tabular}
-\vspace{0.45cm}
-{\color{WarningColor}\ttfamily\fontsize{13}{16}\selectfont iptables -A FORWARD -s 0/0 -i eth0 -d 192.168.1.58 -o eth1 -p TCP -{}-sport 1024:65535 -{}-dport 80 -j ACCEPT\par}
+\vspace{0.35cm}
+{\color{CommandGreen}\ttfamily\fontsize{11}{13}\selectfont iptables -A FORWARD -s 0/0 -i eth0 -d 192.168.1.58 -o eth1 -p tcp --sport 1024:65535 --dport 80 -j ACCEPT\par}
 \end{frame}

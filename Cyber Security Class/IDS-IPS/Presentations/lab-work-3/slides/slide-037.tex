@@ -1,13 +1,19 @@
 % Source PDF page 37
-\begin{frame}[t]{Example of port forwarding}
-  \CodeBlock{12.5}{14.5}{%
-    \# After DNAT, the packets are routed via the filter's FORWARD chain.\par
-    \# Connections on port 80 to the target machine on the private network\par
-    \# must be allowed.\par
-    \vspace{0.15cm}
-    - iptables -A FORWARD -p tcp -i eth0 -o eth1 -d \textbackslash{} 192.168.1.200 -{}-dport 8080 -{}-sport 1024:65535 -m \textbackslash{} state -{}-state NEW -j ACCEPT\par
-    \vspace{0.1cm}
-    - iptables -A FORWARD -t filter -i eth1 -m state \textbackslash{} -{}-state NEW,ESTABLISHED,RELATED -j ACCEPT\par
-    \vspace{0.1cm}
-    - iptables -A FORWARD -t filter -i eth0 -m state \textbackslash{} -{}-state ESTABLISHED,RELATED -j ACCEPT\par}
+\begin{frame}[t,allowframebreaks]{Example of port forwarding}
+  \fontsize{15}{18}\selectfont
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# After DNAT, the packets are routed via the filter's\par}
+  \textcolor{WarningColor}{\bfseries FORWARD} chain.\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Connections on port 80 to the target machine on the\par}
+  private network \# must be allowed.\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont - iptables -A FORWARD -p tcp-ieth0 -o eth1 -d \textbackslash{}\par}
+  192.168.1.200 --dport 8080 --sport 1024:65535 -m \textbackslash{} state -- state \textcolor{WarningColor}{\bfseries NEW} -j \textcolor{WarningColor}{\bfseries ACCEPT}\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont - iptables -A FORWARD -t filter -i eth1 -m state \textbackslash{}\par}
+  --state \textcolor{WarningColor}{\bfseries NEW},\textcolor{WarningColor}{\bfseries ESTABLISHED},\textcolor{WarningColor}{\bfseries RELATED} -j \textcolor{WarningColor}{\bfseries ACCEPT}\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont - iptables -A FORWARD -t filter -i eth0 -m state \textbackslash{}\par}
+  --state \textcolor{WarningColor}{\bfseries ESTABLISHED},\textcolor{WarningColor}{\bfseries RELATED} -j \textcolor{WarningColor}{\bfseries ACCEPT}\par
 \end{frame}

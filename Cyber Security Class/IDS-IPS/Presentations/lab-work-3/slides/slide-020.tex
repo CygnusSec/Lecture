@@ -1,9 +1,16 @@
 % Source PDF page 20
-\begin{frame}[t]{TCP Protocol match options (-p tcp ...)}
-  \fontsize{14}{16}\selectfont
+\begin{frame}[t,allowframebreaks]{TCP Protocol match options (-p tcp ...)}
+  \fontsize{15}{18}\selectfont
   \begin{itemize}
-    \item {\ttfamily -{}-dport} : Sets the destination port for the packet. To browse the names and aliases of network services and the port numbers they use, view the {\ttfamily /etc/services} file.
-    \item To specify a specific range of port numbers, separate the two numbers with a colon ({\ttfamily :}), such as {\ttfamily -p tcp -{}-dport 3000:3200}. The largest acceptable valid range is {\ttfamily 0:65535}.
-    \item Use an exclamation point character ({\ttfamily !}) after the {\ttfamily -{}-dport} option to tell \textcolor{CommandGreen}{\bfseries iptables} to match all packets which do not use that network service or port.
+    \item --dport : Sets the destination port for the packet. To
   \end{itemize}
+  browse the names and aliases of network services and the port numbers they use, view the /etc/services file.\par
+  \begin{itemize}
+    \item To specify a specific range of port numbers,
+  \end{itemize}
+  separate the two numbers with a colon (:), such as - p tcp --dport 3000:3200. The largest acceptable valid range is 0:65535.\par
+  \begin{itemize}
+    \item Use an exclamation point character (!) after the --
+  \end{itemize}
+  dportoption to tell \textcolor{CommandGreen}{\bfseries iptables} to match all packets which do not use that network service or port.\par
 \end{frame}

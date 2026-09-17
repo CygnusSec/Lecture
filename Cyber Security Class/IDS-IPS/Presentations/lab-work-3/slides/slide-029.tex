@@ -1,14 +1,17 @@
 % Source PDF page 29
-\begin{frame}[t]{Allowing Firewall To Access The Internet}
-  \CodeBlock{11.5}{14}{%
-    \# Allow port 80 (www) and 443 (https) connections from the firewall\par
-    iptables -A OUTPUT -j ACCEPT -m state -{}-state NEW,ESTABLISHED,RELATED -o eth0 -p tcp -m multiport -{}-dport 80,443 -m multiport -{}-sport 1024:65535\par
-    \vspace{0.15cm}
-    \# Allow previously established connections\par
-    \# - Interface eth0 is the internet interface\par
-    iptables -A INPUT -j ACCEPT -m state -{}-state ESTABLISHED,RELATED -i eth0 -p tcp\par}
-  \vspace{0.2cm}
-  {\fontsize{12}{15}\selectfont If you want all TCP traffic originating from the firewall to be accepted, then remove the line:\par}
+\begin{frame}[t,allowframebreaks]{Allowing Firewall To Access The Internet}
+  \fontsize{15}{18}\selectfont
   \vspace{0.08cm}
-  \CodeBlock{11.5}{14}{-m multiport -{}-dport 80,443 -m multiport -{}-sport 1024:65535}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Allow port 80 (www) and 443 (https) connections from the\par}
+  firewall\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A OUTPUT -j ACCEPT -m state --state\par}
+  \textcolor{WarningColor}{\bfseries NEW},\textcolor{WarningColor}{\bfseries ESTABLISHED},\textcolor{WarningColor}{\bfseries RELATED} -o eth0 -p tcp -m multiport --dport 80,443 -m multiport --sport 1024:65535\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Allow previously established connections\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# - Interface eth0 is the internet interface\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A INPUT -j ACCEPT -m state --state\par}
+  \textcolor{WarningColor}{\bfseries ESTABLISHED},\textcolor{WarningColor}{\bfseries RELATED} -i eth0 -p tcp If you want all TCP traffic originating from the firewall to be accepted, then remove the line: -m multiport --dport 80,443 -m multiport --sport 1024:65535\par
 \end{frame}

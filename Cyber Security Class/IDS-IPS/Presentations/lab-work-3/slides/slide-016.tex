@@ -1,13 +1,17 @@
-% Source PDF page 16
-\begin{frame}[t]{Parameters}
-  \fontsize{14}{16}\selectfont
-  \begin{itemize}
-    \item {\ttfamily -i} : Sets the incoming network interface, such as eth0 or ppp0. With \textcolor{CommandGreen}{\bfseries iptables}, this optional parameter may only be used with the INPUT and FORWARD chains when used with the \textcolor{CommandGreen}{\bfseries filter} table and the PREROUTING chain with the \textcolor{CommandGreen}{\bfseries NAT} and \textcolor{CommandGreen}{\bfseries MANGLE} tables.
-    \item This parameter also supports the following special options:
-    \begin{itemize}
-      \item {\ttfamily !} : Tells this parameter not to match, meaning that any specified interfaces are specifically excluded from this rule.
-      \item {\ttfamily +} : A wildcard character used to match all interfaces which match a particular string. For example, the parameter {\ttfamily -i eth+} would apply this rule to any Ethernet interfaces but exclude any other interfaces, such as ppp0.
-    \end{itemize}
-    \item If the {\ttfamily -i} parameter is used but no interface is specified, then every interface is affected by the rule.
-  \end{itemize}
+% Source PDF page 16 - split at semantic boundaries
+\begin{frame}[t]{Parameters (4/7)}
+\BodyText{\textcolor{CommandGreen}{\texttt{-i}} selects the incoming interface, such as \texttt{eth0} or \texttt{ppp0}.}
+\begin{itemize}
+  \item Filter table: valid with \textcolor{WarningColor}{\bfseries INPUT} and \textcolor{WarningColor}{\bfseries FORWARD}
+  \item NAT/mangle tables: valid with \textcolor{WarningColor}{\bfseries PREROUTING}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Parameters (5/7)}
+\BodyText{Special options supported by \texttt{-i}:}
+\begin{itemize}
+  \item \texttt{!} excludes the specified interface from the match
+  \item \texttt{+} is a wildcard; for example, \texttt{-i eth+} matches Ethernet interfaces but excludes interfaces such as \texttt{ppp0}
+  \item If no interface is specified, every interface is affected
+\end{itemize}
 \end{frame}

@@ -1,15 +1,22 @@
 % Source PDF page 22
-\begin{frame}[t]{ICMP Protocol match options (-p icmp )}
-  \fontsize{14}{16}\selectfont
+\begin{frame}[t,allowframebreaks]{ICMP Protocol match options (-p icmp )}
+  \fontsize{15}{18}\selectfont
   \begin{itemize}
-    \item These match options are available for the Internet Control Message Protocol (ICMP) ({\ttfamily -p icmp}):
-    \item {\ttfamily -{}-icmp-type <type>} : Sets the name or number of the ICMP type to match with the rule
+    \item These match options are available for the Internet Control
   \end{itemize}
-  \CodeBlock{14}{16}{%
-    \hspace{1.2em}iptables -A OUTPUT -p icmp -{}-icmp-type echo-request -j ACCEPT\par
-    \hspace{1.2em}iptables -A INPUT -p icmp -{}-icmp-type echo-reply -j ACCEPT\par}
-  \vspace{0.12cm}
+  Message Protocol (ICMP) (-p icmp):\par
   \begin{itemize}
-    \item In this example \textcolor{CommandGreen}{\bfseries iptables} is being configured to allow the firewall send ICMP echo-requests (pings) and in turn, accept the expected ICMP echo-replies.
+    \item --icmp-type<type> : Sets the name or number of the ICMP
   \end{itemize}
+  type to match with the rule\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A OUTPUT -p icmp --icmp-type\par}
+  echo-request -j \textcolor{WarningColor}{\bfseries ACCEPT}\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A INPUT -p icmp --icmp-type echo-reply -j\par}
+  \textcolor{WarningColor}{\bfseries ACCEPT}\par
+  \begin{itemize}
+    \item In this example \textcolor{CommandGreen}{\bfseries iptables} is being configured to allow the
+  \end{itemize}
+  firewall send ICMP echo-requests (pings) and in turn, accept the expected ICMP echo-replies.\par
 \end{frame}

@@ -1,16 +1,19 @@
 % Source PDF page 28
-\begin{frame}[t]{Allowing WWW And SSH Access To Firewall}
-  \CodeBlock{10}{12.5}{%
-    \#-------------------------------------------------\par
-    \# Allow previously established connections\par
-    \# - Interface eth0 is the internet interface\par
-    \#-------------------------------------------------\par
-    iptables -A OUTPUT -o eth0 -m state -{}-state ESTABLISHED,RELATED -j ACCEPT\par
-    \vspace{0.25cm}
-    \#-------------------------------------------------\par
-    \# Allow port 80 (www) and 22 (SSH) connections to the firewall\par
-    \#-------------------------------------------------\par
-    iptables -A INPUT -p tcp -i eth0 -{}-dport 22 -{}-sport 1024:65535 -m state -{}-state NEW -j ACCEPT\par
-    \vspace{0.2cm}
-    iptables -A INPUT -p tcp -i eth0 -{}-dport 80 -{}-sport 1024:65535 -m state -{}-state NEW -j ACCEPT\par}
+\begin{frame}[t,allowframebreaks]{Allowing WWW And SSH Access To Firewall}
+  \fontsize{15}{18}\selectfont
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Allow previously established connections\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# - Interface eth0 is the internet interface\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A OUTPUT -o eth0 -m state --state\par}
+  \textcolor{WarningColor}{\bfseries ESTABLISHED},\textcolor{WarningColor}{\bfseries RELATED} -j \textcolor{WarningColor}{\bfseries ACCEPT}\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Allow port 80 (www) and 22 (SSH) connections to the firewall\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A INPUT -p tcp -i eth0 --dport 22\par}
+  --sport 1024:65535 -m state --state \textcolor{WarningColor}{\bfseries NEW} -j \textcolor{WarningColor}{\bfseries ACCEPT}\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -A INPUT -p tcp -i eth0 --dport 80\par}
+  --sport 1024:65535 -m state --state \textcolor{WarningColor}{\bfseries NEW} -j \textcolor{WarningColor}{\bfseries ACCEPT}\par
 \end{frame}

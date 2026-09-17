@@ -1,11 +1,11 @@
 % Source PDF page 12 - reconstructed table
 \begin{frame}{The Most Commonly Used Targets}
-\centering\fontsize{10.7}{13}\selectfont
-\renewcommand{\arraystretch}{1.18}
-\begin{tabular}{|Y{2.1cm}|Y{6.3cm}|Y{4.2cm}|}\hline
-\rowcolor{MethodColor!80}\color{white}\bfseries Target&\color{white}\bfseries Description&\color{white}\bfseries Most common options\\\hline
-\textcolor{WarningColor}{\bfseries ACCEPT}&\textgreater{} iptables stops further processing.\newline\textgreater{} The packet is handed over to the end application or the operating system for processing&N/A\\\hline
-\textcolor{WarningColor}{\bfseries DROP}&\textgreater{} iptables stops further processing.\newline\textgreater{} The packet is blocked&N/A\\\hline
-\textcolor{WarningColor}{\bfseries REJECT}&\textgreater{} Works like the DROP target, but will also return an error message to the host sending the packet that the packet was blocked&\texttt{-{}-reject-with} qualifier\newline Qualifiers include:\newline icmp-port-unreachable (default)\newline icmp-net-unreachable\newline icmp-host-unreachable\\\hline
+\centering\fontsize{11.5}{13.5}\selectfont
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|Y{2cm}|Y{6.3cm}|Y{4.2cm}|}\hline
+\rowcolor{MethodColor!80}\color{white}\bfseries Target&\color{white}\bfseries Description&\color{white}\bfseries Common Options\\\hline
+\textcolor{WarningColor}{\bfseries ACCEPT}&Stops further processing and hands the packet to the application or operating system.&N/A\\\hline
+\textcolor{WarningColor}{\bfseries DROP}&Stops further processing; the packet is blocked.&N/A\\\hline
+\textcolor{WarningColor}{\bfseries REJECT}&Blocks the packet and returns an error to the sender.&\texttt{--reject-with}; e.g. \texttt{icmp-port-unreachable}, \texttt{icmp-net-unreachable}, \texttt{icmp-host-unreachable}.\\\hline
 \end{tabular}
 \end{frame}

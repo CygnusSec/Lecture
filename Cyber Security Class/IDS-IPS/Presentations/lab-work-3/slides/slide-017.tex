@@ -1,10 +1,18 @@
-% Source PDF page 17
-\begin{frame}[t]{Parameters}
-  \fontsize{14}{16}\selectfont
-  \begin{itemize}
-    \item {\ttfamily -j} : Tells \textcolor{CommandGreen}{\bfseries iptables} to jump to a particular target when a packet matches a particular rule. Valid targets to be used after the {\ttfamily -j} option are: \textcolor{WarningColor}{\bfseries ACCEPT}, \textcolor{WarningColor}{\bfseries DROP}, LOG, \textcolor{WarningColor}{\bfseries REJECT} ....
-    \item You may also direct a packet matching this rule to a user-defined chain outside of the current chain so that other rules can be applied to the packet.
-    \item If no target is specified, the packet moves past the rule with no action taken. However, the counter for this rule is still increased by one, as the packet matched the specified rule.
-    \item {\ttfamily -o} : Sets the outgoing network interface for a rule and may only be used with OUTPUT and FORWARD chains in the \textcolor{CommandGreen}{\bfseries filter} table, and the \textcolor{WarningColor}{\bfseries POSTROUTING} chain in the \textcolor{CommandGreen}{\bfseries nat} and \textcolor{CommandGreen}{\bfseries mangle} tables. This parameter's options are the same as those of the incoming network interface parameter ({\ttfamily -i}).
-  \end{itemize}
+% Source PDF page 17 - split at semantic boundaries
+\begin{frame}[t]{Parameters (6/7)}
+\BodyText{\textcolor{CommandGreen}{\texttt{-j}} tells iptables which target to use when a packet matches.}
+\begin{itemize}
+  \item Common targets: \textcolor{WarningColor}{\bfseries ACCEPT}, \textcolor{WarningColor}{\bfseries DROP}, \textcolor{WarningColor}{\bfseries LOG}, and \textcolor{WarningColor}{\bfseries REJECT}
+  \item A rule may jump to a user-defined chain so additional rules can be applied
+  \item Without a target, processing continues and the rule counter still increases
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Parameters (7/7)}
+\BodyText{\textcolor{CommandGreen}{\texttt{-o}} selects the outgoing interface.}
+\begin{itemize}
+  \item Filter table: valid with \textcolor{WarningColor}{\bfseries OUTPUT} and \textcolor{WarningColor}{\bfseries FORWARD}
+  \item NAT/mangle tables: valid with \textcolor{WarningColor}{\bfseries POSTROUTING}
+  \item Supports the same special options as \texttt{-i}
+\end{itemize}
 \end{frame}

@@ -1,30 +1,38 @@
 % Source PDF page 30
-\begin{frame}[t]{IPTABLES Summary}
-  \fontsize{10}{12}\selectfont
+\begin{frame}[t,allowframebreaks]{iptables Summary}
+  \fontsize{15}{18}\selectfont
   \begin{itemize}
-    \item {\color{WarningColor}Flush the rules from a chain:}
+    \item Flush the rules from a chain:
   \end{itemize}
-  \CodeBlock{10}{12.5}{%
-    \hspace{1.2em}\# iptables -F INPUT\par
-    \hspace{1.2em}\# iptables -F OUTPUT\par
-    \hspace{1.2em}\# iptables -F FORWARD\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables -F INPUT\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables -F OUTPUT\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables -F FORWARD\par}
   \begin{itemize}
-    \item {\color{WarningColor}Setting a Default Policy (-P or -{}-policy)}
+    \item Setting a Default Policy (-P or --policy)
   \end{itemize}
-  \CodeBlock{10}{12.5}{%
-    \hspace{1.2em}\# iptables -P INPUT DROP\par
-    \hspace{1.2em}\# iptables -P OUTPUT DROP\par
-    \hspace{1.2em}\# iptables -P FORWARD DROP\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables -P INPUT DROP\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables -P OUTPUT DROP\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables -P FORWARD DROP\par}
   \begin{itemize}
-    \item {\color{WarningColor}Creating Firewall Rules}
+    \item Creating Firewall Rules
   \end{itemize}
-  \CodeBlock{10}{12.5}{%
-    \hspace{1.2em}\# iptables -{}-append CHAIN selection-criteria -{}-jump \{DROP|ACCEPT|REJECT\}\par
-    \hspace{1.2em}\# iptables -A CHAIN selection-criteria -j \{DROP|ACCEPT|REJECT\}\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables --append CHAINselection-criteria --jump\par}
+  \{\textcolor{WarningColor}{\bfseries DROP}|\textcolor{WarningColor}{\bfseries ACCEPT}|\textcolor{WarningColor}{\bfseries REJECT}\}\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables -A CHAINselection-criteria -j\par}
+  \{\textcolor{WarningColor}{\bfseries DROP}|\textcolor{WarningColor}{\bfseries ACCEPT}|\textcolor{WarningColor}{\bfseries REJECT}\}\par
   \begin{itemize}
-    \item {\color{WarningColor}Opening and Closing Specific Ports}
+    \item Opening and Closing Specific Ports
   \end{itemize}
-  \CodeBlock{10}{12.5}{%
-    \hspace{1.2em}\# iptables -A INPUT -p tcp -{}-dport 25 -j ACCEPT\par
-    \hspace{1.2em}\# iptables -A OUTPUT -p tcp -{}-sport 25 -j ACCEPT\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables -A INPUT -p tcp --dport 25 -j ACCEPT\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# iptables -A OUTPUT -p tcp --sport 25 -j ACCEPT\par}
 \end{frame}

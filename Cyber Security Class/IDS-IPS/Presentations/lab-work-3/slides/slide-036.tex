@@ -1,13 +1,20 @@
 % Source PDF page 36
-\begin{frame}[t]{Example of port forwarding}
-  \CodeBlock{13}{15}{%
-    \# Load the NAT module and Enable routing\par
-    modprobe iptable\_nat\par
-    echo 1 > /proc/sys/net/ipv4/ip\_forward\par
-    external\_int="eth0"\par
-    external\_ip="203.132.168.1"\par
-    \vspace{0.12cm}
-    \# Allow port forwarding for traffic destined to port 80 of the firewall's IP address to be forwarded to port 8080 on server 192.168.1.200. Interface eth0 is the internet interface Interface eth1 is the private network interface\par
-    \vspace{0.12cm}
-    iptables -t nat -A PREROUTING -p tcp -i eth0 -d \$external\_ip -{}-dport 80 -{}-sport 1024:65535 -j DNAT -{}-to 192.168.1.200:8080\par}
+\begin{frame}[t,allowframebreaks]{Example of port forwarding}
+  \fontsize{15}{18}\selectfont
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Load the NAT module and Enable routing\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont modprobe iptable\_nat\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont echo 1 > /proc/sys/net/ipv4/ip\_forward\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont external\_int="eth0"\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont external\_ip=“203.132.168.1”\par}
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont \# Allow port forwarding for traffic destined to port 80 of\par}
+  the firewall's IP address to be forwarded to port 8080 on server 192.168.1.200. Interface eth0 is the internet interface Interface eth1 is the private network interface\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables -t nat -A PREROUTING -p tcp -i eth0 -d\par}
+  \$external\_ip --dport 80 --sport 1024:65535 -j \textcolor{WarningColor}{\bfseries DNAT} --to 192.168.1.200:8080\par
 \end{frame}

@@ -1,8 +1,11 @@
 % Source PDF page 32
-\begin{frame}[t]{Masquerading (Many to One NAT)}
-  \fontsize{14}{16}\selectfont
+\begin{frame}[t,allowframebreaks]{Masquerading(Many to One NAT)}
+  \fontsize{15}{18}\selectfont
   \begin{itemize}
-    \item \textcolor{CommandGreen}{\bfseries NAT} allows a router to modify the contents of TCP/IP packets. In particular, \textcolor{CommandGreen}{\bfseries NAT} enables changes to the source and destination addresses of the packets. Masquerading is another word for what many call "many to one" \textcolor{CommandGreen}{\bfseries NAT}. In other words, traffic from all devices on one or more protected networks will appear as if it originated from a single IP address on the Internet side of the firewall
-    \item \textcolor{CommandGreen}{\bfseries iptables} requires the iptables\_nat module to be loaded with the "modprobe" command for the masquerade feature to work. Masquerading also depends on the Linux operating system being configured to support routing between the internet and private network interfaces of the firewall. This is done by enabling "IP forwarding" or routing by giving the file {\ttfamily /proc/sys/net/ipv4/ip\_forward} the value "1" as opposed to the default disabled value of "0".
+    \item \textcolor{CommandGreen}{\bfseries NAT} allows a router to modify the contents of TCP/IP
   \end{itemize}
+  packets. In particular, \textcolor{CommandGreen}{\bfseries NAT} enables changes to the source and destination addresses of the packets. Masquerading is another word for what many call "many to one" \textcolor{CommandGreen}{\bfseries NAT}. In other words, traffic from all devices on one or more protected networks will appear as if it originated from a single IP address on the Internet side of the firewall\par
+  \vspace{0.08cm}
+  {\color{CommandGreen}\ttfamily\fontsize{13.5}{16.5}\selectfont iptables requires the iptables\_nat module to be\par}
+  loaded with the "modprobe" command for the masquerade feature to work. Masquerading also depends on the Linux operating system being configured to support routing between the internet and private network interfaces of the firewall. This is done by enabling "IP forwarding" or routing by giving the file /proc/sys/net/ipv4/ip\_forward the value "1" as opposed to the default disabled value of "0".\par
 \end{frame}

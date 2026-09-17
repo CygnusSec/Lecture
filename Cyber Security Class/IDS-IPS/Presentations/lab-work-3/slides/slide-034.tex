@@ -1,8 +1,12 @@
 % Source PDF page 34
-\begin{frame}[t]{Forwarding Ports with iptables}
-  \fontsize{14}{16}\selectfont
+\begin{frame}[t,allowframebreaks]{Forwarding Ports with iptables}
+  \fontsize{15}{18}\selectfont
   \begin{itemize}
-    \item In many cases home users may get a single public IP address from their ISP. If their Linux firewall is their interface to the Internet and they want to host a website on one of the \textcolor{CommandGreen}{\bfseries NAT} protected home servers then they will have to use the "port forwarding" technique.
-    \item Port forwarding is handled by the \textcolor{WarningColor}{\bfseries PREROUTING} chain of the "\textcolor{CommandGreen}{\bfseries nat}" table. As in masquerading, the iptables\_nat module will have to be loaded and routing enabled for port forwarding to work. Routing too will have to be allowed in \textcolor{CommandGreen}{\bfseries iptables} with the \textcolor{WarningColor}{\bfseries FORWARD} chain, this would include all \textcolor{WarningColor}{\bfseries NEW} inbound connections from the Internet matching the port forwarding port plus all future packets related to the \textcolor{WarningColor}{\bfseries ESTABLISHED} connection in both directions.
+    \item In many cases home users may get a single public IP
   \end{itemize}
+  address from their ISP. If their Linux firewall is their interface to the Internet and they want to host a website on one of the \textcolor{CommandGreen}{\bfseries NAT} protected home servers then they will have to use the "port forwarding" technique.\par
+  \begin{itemize}
+    \item Port forwarding is handled by the PREROUTINGchain
+  \end{itemize}
+  of the "\textcolor{CommandGreen}{\bfseries nat}" table. As in masquerading, the \textcolor{CommandGreen}{\bfseries iptables}\_\textcolor{CommandGreen}{\bfseries nat} module will have to be loaded and routing enabled for port forwarding to work. Routing too will have to be allowed in \textcolor{CommandGreen}{\bfseries iptables} with the FORWARDchain, this would include all NEWinbound connectionsfrom the Internet matching the port forwarding port plus all future packets related to the ESTABLISHEDconnection in both directions.\par
 \end{frame}
