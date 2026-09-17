@@ -1,7 +1,10 @@
-% Generated from source page 28
-\begin{frame}[t]{nmap: Service detection. (continued)}
+% Consolidated from source pages 28--29
+\begin{frame}[t]{nmap: Service Detection - How It Works and Options.}
   \begin{itemize}
-    \setlength{\itemsep}{0.12cm}
-    \item \BodyText{Based on this database, nmap tries to determine the service protocol (e.g. FTP, SSH, Telnet, HTTP), the application name (e.g. vsftpd, Apache httpd, Solaris telnetd), the version number, etc. of a service.}
+    \setlength{\itemsep}{0.18cm}
+    \item \BodyText{Using the \texttt{nmap-service-probes} database, Nmap identifies the service protocol, application, and version running on each port.}
+    \item \BodyText{Examples include FTP, SSH, Telnet, and HTTP services such as vsftpd or Apache httpd.}
+    \item \BodyText{Enable service detection with \texttt{-sV}:}
+    \item \CommandText{sudo nmap -sV 172.16.1.10}
   \end{itemize}
 \end{frame}

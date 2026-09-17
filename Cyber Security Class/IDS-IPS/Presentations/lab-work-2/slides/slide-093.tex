@@ -1,16 +1,34 @@
 % Generated from source page 46
-\begin{frame}{OPENVAS / GVM Conceptual Architecture}
+\begin{frame}{GVM - Architecture.}
   \centering
-  \begin{tikzpicture}[node distance=0.25cm,>=Latex,
+  \begin{tikzpicture}[>=Latex,
     component/.style={draw=MethodColor,rounded corners=3pt,fill=CardBg,
-      minimum width=6.5cm,minimum height=0.52cm,align=center,font=\fontsize{15}{18}\selectfont\bfseries}]
-    \node[component] (target) {Target Systems};
-    \node[component,below=of target] (scanner) {OpenVAS Scanner / Scanner Components};
-    \node[component,below=of scanner] (ospd) {ospd-openvas};
-    \node[component,below=of ospd] (gvmd) {gvmd};
-    \node[component,below=of gvmd] (gsa) {GSA / gsad};
-    \node[component,below=of gsa] (browser) {Web Browser};
-    \foreach \x/\y in {target/scanner,scanner/ospd,ospd/gvmd,gvmd/gsa,gsa/browser}
-      \draw[->,thick,MethodColor] (\x) -- (\y);
+      minimum height=0.72cm,inner xsep=3pt,align=center,font=\fontsize{10.5}{12.5}\selectfont\bfseries},
+    data/.style={draw=SecondaryColor,rounded corners=3pt,fill=white,
+      minimum height=0.60cm,align=center,font=\fontsize{10.5}{12.5}\selectfont},
+    flow/.style={->,thick,MethodColor}]
+    \node[component,text width=1.65cm] (target) at (-5.5,0.2) {Target\\Systems};
+    \node[component,text width=1.85cm] (scanner) at (-3.0,0.2) {OpenVAS\\Scanner};
+    \node[component,text width=1.90cm] (ospd) at (-0.5,0.2) {ospd-openvas};
+    \node[component,text width=2.20cm] (gvmd) at (2.3,0.2) {Greenbone VM\\Daemon (gvmd)};
+    \node[component,text width=2.55cm] (gsa) at (5.4,0.2) {Greenbone Security\\Assistant};
+
+    \node[data,minimum width=2.2cm] (feed) at (-4.7,-1.7) {Community Feed};
+    \node[data,minimum width=1.6cm] (vts) at (-2.5,-1.7) {VTs};
+    \node[data,minimum width=2.0cm] (scap) at (0.9,-1.7) {SCAP / CERT};
+    \node[data,minimum width=2.1cm] (userdata) at (3.6,-1.7) {User Data};
+    \node[data,minimum width=2.0cm] (client) at (2.3,1.65) {GMP Clients};
+    \node[data,minimum width=2.0cm] (browser) at (5.4,1.65) {Web Browser};
+
+    \draw[flow] (scanner) -- (target);
+    \draw[flow] (scanner) -- (ospd);
+    \draw[flow] (ospd) -- (gvmd);
+    \draw[flow] (gvmd) -- (gsa);
+    \draw[flow] (client) -- (gvmd);
+    \draw[flow] (browser) -- (gsa);
+    \draw[flow] (feed) -- (vts);
+    \draw[flow] (vts) -- (scanner);
+    \draw[flow] (scap) -- (gvmd);
+    \draw[<->,thick,MethodColor] (userdata) -- (gvmd);
   \end{tikzpicture}
 \end{frame}

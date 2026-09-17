@@ -1,0 +1,36 @@
+% Vector recreation of the Lab 1 topology
+\begin{frame}{Lab 1 Topology}
+  \centering
+  \begin{tikzpicture}[>=Latex,
+    host/.style={draw=ResearchColor,line width=1.1pt,rounded corners=4pt,
+      fill=white,minimum width=3.45cm,minimum height=1.55cm,
+      text width=3.05cm,align=center,font=\fontsize{16}{19}\selectfont\bfseries},
+    router/.style={draw=MethodColor,line width=1.2pt,rounded corners=4pt,
+      fill=white,minimum width=3.15cm,minimum height=1.75cm,
+      text width=2.75cm,align=center,font=\fontsize{16}{19}\selectfont\bfseries},
+    ip/.style={font=\fontsize{14}{17}\selectfont\bfseries,text=TitleColor},
+    role/.style={text width=2.8cm,align=center,font=\fontsize{15}{18}\selectfont\bfseries},
+    net/.style={draw=SecondaryColor!55,rounded corners=2pt,fill=white,
+      inner xsep=5pt,inner ysep=3pt,align=center,
+      font=\fontsize{10.5}{13}\selectfont\bfseries,text=SecondaryColor}]
+
+    \node[host] (kali) at (-5.0,0) {\textcolor{ResearchColor}{KALI}\\Kali Linux};
+    \node[router] (gateway) at (0,0) {\textcolor{MethodColor}{IDS}\\Ubuntu Server};
+    \node[host] (victim) at (5.0,0) {\textcolor{ResearchColor}{SERVER}\\{\fontsize{11.5}{14}\selectfont Metasploitable2}};
+
+    \draw[line width=2.2pt,ResearchColor] (kali.east) -- (gateway.west);
+    \draw[line width=2.2pt,MethodColor] (gateway.east) -- (victim.west);
+
+    \node[net] at (-2.5,1.30) {WAN: 10.10.1.0/24};
+    \node[net] at (2.5,1.30) {Server: 172.16.1.0/24};
+
+    \node[ip] at (-5.0,1.92) {10.10.1.10};
+    \node[ip,font=\fontsize{12}{15}\selectfont\bfseries] at (-1.25,1.92) {10.10.1.1};
+    \node[ip,font=\fontsize{12}{15}\selectfont\bfseries] at (1.25,1.92) {172.16.1.1};
+    \node[ip] at (5.0,1.92) {172.16.1.10};
+
+    \node[role,text=WarningColor,below=0.28cm of kali] {Client\\Attacker};
+    \node[role,text=ConclusionColor,below=0.28cm of gateway] {Firewall\\IDS};
+    \node[role,text=ResearchColor,below=0.28cm of victim] {Server\\Victim};
+  \end{tikzpicture}
+\end{frame}
